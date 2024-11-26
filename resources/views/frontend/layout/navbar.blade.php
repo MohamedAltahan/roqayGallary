@@ -1,4 +1,4 @@
-<div class="container-xxl position-relative p-0">
+{{-- <div class="container-xxl position-relative p-0">
     <nav class="navbar navbar_color sticky-top shadow-sm navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
         <a href="{{ url('/') }}" class="navbar-brand p-0">
             <img class="mb-3" src="{{ asset('uploads/' . $logo->main_logo) }}" alt="Logo">
@@ -26,4 +26,37 @@
     @if (Route::is('home') && $homePageSetting->banner_at_home == 'active')
         @include('frontend.layout.head')
     @endif
+</div> --}}
+
+
+<section id="" class="" style="position: absolute;">
+    <div class="container menu-container">
+        <a class="logo" href="{{ url('/') }}"><img alt="Logo" width="80"
+                src="{{ asset('uploads/' . $logo->main_logo) }}" />
+            <h1 class=" text-warning" style="display: inline-block;">
+                {{ $setting->site_name }}</h1>
+        </a>
+        <a href="javascript:;" class="total-overlay-trigger"></a>
+    </div>
+
+</section>
+<div class="total-overlay-sticky">
+    <nav id="navigation">
+        <ul class="menu type2">
+            <li class="logo">
+                <a href="#"><img width="100" alt="Logo"
+                        src="{{ asset('uploads/' . $logo->main_logo) }}" /></a>
+            </li>
+
+            <li class="menu-item-simple-parent">
+                <a title="About" href="{{ route('about') }}">About Us</a>
+            </li>
+
+            <li class="menu-item-simple-parent">
+                <a title="Contact" href="{{ route('contact.index') }}">Contact</a>
+            </li>
+
+        </ul>
+    </nav>
+    <a href="javascript:;" class="total-overlay-sticky-close"></a>
 </div>

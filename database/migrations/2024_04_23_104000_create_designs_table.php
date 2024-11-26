@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('name');
             $table->text('thumbnail')->nullable();
             $table->text('category_id');
-            $table->text('sub_category_id')->nullable();
+            $table->text('description')->nullable();
             $table->enum('status', ['active', 'inactive']);
             $table->timestamps();
         });

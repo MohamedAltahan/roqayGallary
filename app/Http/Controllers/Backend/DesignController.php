@@ -15,13 +15,13 @@ class DesignController extends Controller
 {
     use fileUploadTrait;
 
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         $categories = Category::all();
+
         return view('admin.design.create', compact('categories'));
     }
 
@@ -68,7 +68,7 @@ class DesignController extends Controller
                 'design_id' => $design->id,
                 'name' => $video,
                 'video_thumbnail' => $video_thumbnail,
-                'at_home' => 'no'
+                'at_home' => 'no',
             ]);
         }
 
@@ -83,10 +83,9 @@ class DesignController extends Controller
         }
 
         toastr('Saved successfully');
-        return  redirect()->route('admin.design.edit', $design->id);
+
+        return redirect()->route('admin.design.edit', $design->id);
     }
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -97,6 +96,7 @@ class DesignController extends Controller
         $design = Design::with('images', 'videos')->findOrFail($id);
         $categories = Category::all();
         $subCategories = SubCategory::where('category_id', $design->category_id)->get();
+
         return view('admin.design.edit', compact('design', 'categories', 'subCategories'));
     }
 
@@ -136,7 +136,7 @@ class DesignController extends Controller
                 'design_id' => $design->id,
                 'name' => $video,
                 'video_thumbnail' => $video_thumbnail,
-                'at_home' => 'no'
+                'at_home' => 'no',
             ]);
         }
 
@@ -153,6 +153,7 @@ class DesignController extends Controller
         $design->update($updatedDesignData);
 
         toastr('Added successfully');
+
         return redirect()->route('admin.show-designs.index');
     }
 
@@ -179,8 +180,8 @@ class DesignController extends Controller
         }
         Image::where('design_id', $design->id)->delete();
 
-
         $design->delete();
+
         return response(['status' => 'success', 'message' => 'Deleted successfully']);
     }
 
@@ -189,7 +190,7 @@ class DesignController extends Controller
     {
         $design = Design::findOrFail($request->id);
 
-        $request->status == "true" ? $design->status = 'active' : $design->status = 'inactive';
+        $request->status == 'true' ? $design->status = 'active' : $design->status = 'inactive';
         $design->save();
 
         return response(['message' => 'Status has been updated']);
@@ -232,6 +233,7 @@ class DesignController extends Controller
         if ($video->at_home) {
             return redirect()->back();
         }
-        return  redirect()->route('admin.design.edit', $video->design);
+
+        return redirect()->route('admin.design.edit', $video->design);
     }
 }

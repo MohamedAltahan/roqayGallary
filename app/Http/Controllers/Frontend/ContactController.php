@@ -12,20 +12,22 @@ class ContactController extends Controller
     public function index()
     {
         $setting = Setting::first();
+
         return view('frontend.pages.contact', compact('setting'));
     }
 
     public function store(Request $request)
     {
-        $validData =  $request->validate([
+        $validData = $request->validate([
             'name' => 'required|max:100',
             'email' => 'required|max:100|email',
             'message' => 'required|max:1000',
-            'phone' => 'required|max:30'
+            'phone' => 'required|max:30',
         ]);
 
         EmailInbox::create($validData);
         toastr('Send successfully');
+
         return redirect()->back();
     }
 }

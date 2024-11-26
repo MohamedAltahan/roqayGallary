@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class SocialController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      */
@@ -38,12 +37,12 @@ class SocialController extends Controller
             'status' => ['in:active,inactive'],
         ]);
 
-        $footerButtons = new Social();
+        $footerButtons = new Social;
         $footerButtons->create($request->all());
         toastr('Crated successfully', 'success', 'success');
+
         return redirect()->route('admin.socials.index');
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -51,6 +50,7 @@ class SocialController extends Controller
     public function edit(string $id)
     {
         $footerButtonInfo = Social::findOrFail($id);
+
         return view('admin.socials.edit', compact('footerButtonInfo'));
     }
 
@@ -66,9 +66,10 @@ class SocialController extends Controller
             'status' => ['in:active,inactive'],
         ]);
 
-        $footerButtons =  Social::findOrFail($id);
+        $footerButtons = Social::findOrFail($id);
         $footerButtons->update($request->all());
         toastr('Updated successfully', 'success', 'success');
+
         return redirect()->route('admin.socials.index');
     }
 
@@ -77,7 +78,7 @@ class SocialController extends Controller
      */
     public function destroy(string $id)
     {
-        $footerButtons =  Social::findOrFail($id);
+        $footerButtons = Social::findOrFail($id);
         $footerButtons->delete();
 
         return response(['status' => 'success', 'message' => 'Deleted successfully']);
@@ -88,7 +89,7 @@ class SocialController extends Controller
     {
         $category = Social::findOrFail($request->id);
 
-        $request->status == "true" ? $category->status = 'active' : $category->status = 'inactive';
+        $request->status == 'true' ? $category->status = 'active' : $category->status = 'inactive';
         $category->save();
 
         return response(['message' => 'Status has been updated']);

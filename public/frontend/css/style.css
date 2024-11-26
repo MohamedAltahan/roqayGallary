@@ -2079,6 +2079,7 @@ footer,
     padding: 0;
     width: 100%;
     z-index: 1;
+    height: 60px;
 }
 #header-wrapper {
     float: left;

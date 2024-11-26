@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\AdminAuth;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
@@ -60,6 +59,6 @@ class NewPasswordController extends Controller
         return $status == Password::PASSWORD_RESET
             ? redirect()->route('admin.login')->with('status', __($status))
             : back()->withInput($request->only('email'))
-            ->withErrors(['email' => __($status)]);
+                ->withErrors(['email' => __($status)]);
     }
 }

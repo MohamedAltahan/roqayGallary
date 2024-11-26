@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DesignDetailsController;
@@ -35,6 +34,5 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('category/{id}', 'show')->name('category.show');
 });
 
-
-require __DIR__ . '/admin.php';
-require __DIR__ . '/adminAuth.php';
+require __DIR__.'/admin.php';
+require __DIR__.'/adminAuth.php';

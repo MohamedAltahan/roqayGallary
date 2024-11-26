@@ -17,14 +17,15 @@ class AdminProfileController extends Controller
     {
         return view('admin.profile.index');
     }
+
     // user profile update----------------------------------------------------------
     public function profileUpdate(Request $request)
     {
 
         $request->validate([
             'name' => ['required', 'max:100'],
-            'email' => ['required', 'email', 'unique:users,email,' . Auth::guard('web')->user()->id],
-            'image' => ['image', 'max:2048']
+            'email' => ['required', 'email', 'unique:users,email,'.Auth::guard('web')->user()->id],
+            'image' => ['image', 'max:2048'],
         ]);
 
         $user = Auth::guard('web')->user();
@@ -43,6 +44,7 @@ class AdminProfileController extends Controller
             Storage::disk('myDisk')->delete($oldImage);
         }
         toastr()->success('Profile updated successfully');
+
         return redirect()->back();
     }
 
@@ -60,28 +62,30 @@ class AdminProfileController extends Controller
 
         if (Hash::check($request->current_password, $password)) {
             $request->user('web')->update([
-                'password' => bcrypt($request->password)
+                'password' => bcrypt($request->password),
             ]);
         } else {
             toastr()->error('worng current password');
+
             return redirect()->back();
         }
 
         toastr()->success('Password updated successfully');
+
         return redirect()->back();
     }
-
 
     //it take the file from the request then store it, then returns the path
     public function uploadImage(Request $request)
     {
-        if (!$request->hasFile('image')) {
+        if (! $request->hasFile('image')) {
             return;
         }
         //it returns object of uploaded file object
         $image = $request->file('image');
         //takes (folderName,name of the disk )to store the file and returns the path
         $path = $image->store('profile', ['disk' => 'myDisk']);
+
         return $path;
     }
 }

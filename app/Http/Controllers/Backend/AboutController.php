@@ -8,22 +8,22 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-
     //============================================================
-    function update(Request $request)
+    public function update(Request $request)
     {
 
         $request->validate([
-            'content' => ['required']
+            'content' => ['required'],
         ]);
 
         About::updateOrCreate(
             ['id' => 1],
             [
-                'content' => $request->content
+                'content' => $request->content,
             ]
         );
         toastr('Updated successfully!', 'success', 'success');
+
         return redirect()->back();
     }
 }

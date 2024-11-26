@@ -36,13 +36,14 @@ class CategoryController extends Controller
         // dd($request->all());
         $request->validate([
             'name' => ['required', 'max:200', 'unique:categories,name'],
-            'status' => ['required']
+            'status' => ['required'],
         ]);
         $slug = Str::slug($request->name);
         $request->merge(['slug' => $slug]);
         Category::create($request->all());
 
         toastr('Created Successfully');
+
         return redirect()->route('admin.category.index');
     }
 
@@ -60,6 +61,7 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::findOrFail($id);
+
         return view('admin.category.edit', compact('category'));
     }
 
@@ -71,7 +73,7 @@ class CategoryController extends Controller
 
         $request->validate([
             'name' => ['required', 'max:200', "unique:categories,name, $id"],
-            'status' => ['required']
+            'status' => ['required'],
         ]);
 
         $category = Category::findOrFail($id);
@@ -83,14 +85,13 @@ class CategoryController extends Controller
         return redirect()->route('admin.category.index');
     }
 
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
         $category = Category::find($id);
-        if (!isset($category)) {
+        if (! isset($category)) {
             return response(['status' => 'error', 'message' => 'Can not delete, the item not found.']);
         }
 
@@ -106,6 +107,7 @@ class CategoryController extends Controller
 
         $category->delete();
         toastr('Deleted Successfully');
+
         return response(['status' => 'success', 'message' => 'Deleted successfully']);
     }
 
@@ -114,7 +116,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($request->id);
 
-        $request->status == "true" ? $category->status = 'active' : $category->status = 'inactive';
+        $request->status == 'true' ? $category->status = 'active' : $category->status = 'inactive';
         $category->save();
 
         return response(['message' => 'Status has been updated']);

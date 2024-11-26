@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class WebsiteColor extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'main_background',
         'secondary_background',

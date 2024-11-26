@@ -5,12 +5,12 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DesignController;
-use App\Http\Controllers\Backend\SettingController;
-use App\Http\Controllers\Backend\SubCategoryController;
-use App\Http\Controllers\Backend\ShowDesignController;
 use App\Http\Controllers\Backend\EmailInboxController;
 use App\Http\Controllers\Backend\HomePageSettingController;
+use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\ShowDesignController;
 use App\Http\Controllers\Backend\SocialController;
+use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\WebsiteColorController;
 use Illuminate\Support\Facades\Route;
 

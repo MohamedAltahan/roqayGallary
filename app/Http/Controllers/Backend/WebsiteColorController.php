@@ -10,7 +10,7 @@ class WebsiteColorController extends Controller
 {
     public function update(Request $request)
     {
-        $colors = WebsiteColor::first() ?? new WebsiteColor();
+        $colors = WebsiteColor::first() ?? new WebsiteColor;
 
         $request->validate([
             'main_background' => ['max:7', 'min:7'],
@@ -27,6 +27,7 @@ class WebsiteColorController extends Controller
         );
 
         toastr('Saved Successfully');
+
         return redirect()->back();
     }
 }

@@ -8,8 +8,6 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class EmailInboxDataTable extends DataTable
@@ -19,7 +17,7 @@ class EmailInboxDataTable extends DataTable
     /**
      * Build the DataTable class.
      *
-     * @param QueryBuilder $query Results from query() method.
+     * @param  QueryBuilder  $query  Results from query() method.
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
@@ -32,7 +30,8 @@ class EmailInboxDataTable extends DataTable
                 return $query->created_at;
             })
             ->addColumn('action', function ($query) {
-                $openBtn = "<a href='" . route('admin.get-emails.show', $query->id) . "'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Open</a>";
+                $openBtn = "<a href='".route('admin.get-emails.show', $query->id)."'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Open</a>";
+
                 return $openBtn;
             })
             ->rawColumns(['action'])
@@ -65,7 +64,7 @@ class EmailInboxDataTable extends DataTable
                 Button::make('pdf'),
                 Button::make('print'),
                 Button::make('reset'),
-                Button::make('reload')
+                Button::make('reload'),
             ]);
     }
 
@@ -92,6 +91,6 @@ class EmailInboxDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'EmailInbox_' . date('YmdHis');
+        return 'EmailInbox_'.date('YmdHis');
     }
 }

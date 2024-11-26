@@ -10,13 +10,15 @@ use Illuminate\Http\Request;
 class FooterController extends Controller
 {
     use fileUploadTrait;
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $footerInfo = Footer::first();
-        $footerInfo = $footerInfo ? $footerInfo : new Footer();
+        $footerInfo = $footerInfo ? $footerInfo : new Footer;
+
         return view('admin.footer.footer-info.index', compact('footerInfo'));
     }
 
@@ -77,6 +79,7 @@ class FooterController extends Controller
 
         Footer::updateOrCreate(['id' => $id], $footer);
         toastr('Updated successfully', 'success', 'success');
+
         return redirect()->back();
     }
 

@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 class SettingController extends Controller
 {
     use fileUploadTrait;
+
     //________________________________________________________________
     public function index()
     {
@@ -26,6 +27,7 @@ class SettingController extends Controller
         $videos = Video::where('at_home', 'yes')->get();
         $images = Image::where('at_home', 'yes')->get();
         $color = WebsiteColor::first();
+
         return view('admin.setting.index', compact(
             'setting',
             'logoSetting',
@@ -49,19 +51,19 @@ class SettingController extends Controller
 
         Setting::updateOrCreate(['id' => 1], $request->all());
         toastr('Updated successfully', 'success', 'success');
+
         return redirect()->back();
     }
 
-
     //________________________________________________________________
-    function logoSettingUpdate(Request $request)
+    public function logoSettingUpdate(Request $request)
     {
         $request->validate([
             'main_logo' => ['image', 'max:3000'],
             'icon' => ['image', 'max:3000'],
         ]);
 
-        $oldLogos = LogoSetting::first() ?: new LogoSetting();
+        $oldLogos = LogoSetting::first() ?: new LogoSetting;
 
         $logos = [];
 
@@ -80,6 +82,7 @@ class SettingController extends Controller
             $logos
         );
         toastr('Updated successfully', 'success', 'success');
+
         return redirect()->back();
     }
 }

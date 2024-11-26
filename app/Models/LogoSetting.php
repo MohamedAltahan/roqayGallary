@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class LogoSetting extends Model
 {
     use HasFactory;
+
     protected $fillable = ['main_logo',  'icon'];
 }

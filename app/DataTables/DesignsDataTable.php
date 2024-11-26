@@ -8,8 +8,6 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class DesignsDataTable extends DataTable
@@ -17,7 +15,7 @@ class DesignsDataTable extends DataTable
     /**
      * Build the DataTable class.
      *
-     * @param QueryBuilder $query Results from query() method.
+     * @param  QueryBuilder  $query  Results from query() method.
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
@@ -26,12 +24,14 @@ class DesignsDataTable extends DataTable
                 if ($query->thumbnail == null) {
                     return 'no image';
                 }
-                return "<img width='100px' src='" . asset('uploads/' . $query->thumbnail) . "'></img>";
+
+                return "<img width='100px' src='".asset('uploads/'.$query->thumbnail)."'></img>";
             })
             ->addColumn('action', function ($query) {
-                $editBtn = "<a href='" . route('admin.design.edit', $query->id) . "'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Edit</a>";
-                $deleteBtn = "<a href='" . route('admin.design.destroy', $query->id)  . "'class='btn btn-sm ml-1 my-1 btn-danger delete-item'><i class='fas fa-trash'></i>Delete</a>";
-                return $editBtn . $deleteBtn;
+                $editBtn = "<a href='".route('admin.design.edit', $query->id)."'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Edit</a>";
+                $deleteBtn = "<a href='".route('admin.design.destroy', $query->id)."'class='btn btn-sm ml-1 my-1 btn-danger delete-item'><i class='fas fa-trash'></i>Delete</a>";
+
+                return $editBtn.$deleteBtn;
             })
             ->addColumn('category', function ($query) {
                 return $query->category->name;
@@ -39,12 +39,12 @@ class DesignsDataTable extends DataTable
             ->addColumn('status', function ($query) {
                 if ($query->status == 'active') {
                     $button = '<label class="custom-switch mt-2">
-                        <input checked type="checkbox" name="custom-switch-checkbox" data-id="' . $query->id . '" class="change-status custom-switch-input">
+                        <input checked type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="change-status custom-switch-input">
                         <span class="custom-switch-indicator"></span>
                       </label>';
                 } else {
                     $button = '<label class="custom-switch mt-2">
-                        <input type="checkbox" name="custom-switch-checkbox" data-id="' . $query->id . '" class="change-status custom-switch-input ">
+                        <input type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="change-status custom-switch-input ">
                         <span class="custom-switch-indicator"></span>
                       </label>';
                 }
@@ -81,7 +81,7 @@ class DesignsDataTable extends DataTable
                 Button::make('pdf'),
                 Button::make('print'),
                 Button::make('reset'),
-                Button::make('reload')
+                Button::make('reload'),
             ]);
     }
 
@@ -109,6 +109,6 @@ class DesignsDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'ShowDesigns_' . date('YmdHis');
+        return 'ShowDesigns_'.date('YmdHis');
     }
 }

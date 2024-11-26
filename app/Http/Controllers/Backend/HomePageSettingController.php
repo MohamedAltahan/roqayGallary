@@ -12,13 +12,14 @@ use Illuminate\Http\Request;
 class HomePageSettingController extends Controller
 {
     use fileUploadTrait;
+
     //============================================================
-    function update(Request $request)
+    public function update(Request $request)
     {
         $request->validate([
             'image' => ['image'],
             'main_title' => ['max:4000'],
-            'description' => ['max:4000']
+            'description' => ['max:4000'],
         ]);
 
         $setting = $request->except('image');
@@ -31,18 +32,18 @@ class HomePageSettingController extends Controller
             $setting
         );
         toastr('Updated successfully!', 'success', 'success');
+
         return redirect()->back();
     }
 
     //============================================================
-    function mediaOnHomePageUpdate(Request $request)
+    public function mediaOnHomePageUpdate(Request $request)
     {
         $request->validate([
             'image.*' => ['image', 'max:20000'],
             'video_thumbnail' => ['image', 'max:20000'],
             'video' => ['mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4'],
         ]);
-
 
         if ($request->has('video_thumbnail')) {
             $video_thumbnail = $this->fileUplaod($request, 'myDisk', 'video_thumbnail', 'video_thumbnail');
@@ -54,7 +55,7 @@ class HomePageSettingController extends Controller
                 'design_id' => null,
                 'name' => $video,
                 'video_thumbnail' => $video_thumbnail,
-                'at_home' => 'yes'
+                'at_home' => 'yes',
             ]);
         }
 
@@ -64,13 +65,13 @@ class HomePageSettingController extends Controller
                 Image::create([
                     'design_id' => null,
                     'name' => $image,
-                    'at_home' => 'yes'
+                    'at_home' => 'yes',
                 ]);
             }
         }
 
-
         toastr('Added successfully');
+
         return redirect()->back();
     }
 
@@ -79,7 +80,7 @@ class HomePageSettingController extends Controller
     {
         $setting = HomePageSetting::first();
 
-        $request->status == "true" ? $setting->banner_at_home = 'active' : $setting->banner_at_home = 'inactive';
+        $request->status == 'true' ? $setting->banner_at_home = 'active' : $setting->banner_at_home = 'inactive';
         $setting->save();
 
         return response(['message' => 'Status has been updated']);

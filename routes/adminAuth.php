@@ -5,12 +5,9 @@ use App\Http\Controllers\AdminAuth\ConfirmablePasswordController;
 use App\Http\Controllers\AdminAuth\NewPasswordController;
 use App\Http\Controllers\AdminAuth\PasswordController;
 use App\Http\Controllers\AdminAuth\PasswordResetLinkController;
-use App\Http\Controllers\AdminAuth\RegisteredUserController;
-
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');

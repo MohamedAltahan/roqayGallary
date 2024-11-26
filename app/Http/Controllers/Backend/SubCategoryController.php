@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend;
 use App\DataTables\SubCategoryDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\ChildCategory;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -25,8 +24,9 @@ class SubCategoryController extends Controller
      */
     public function create()
     { //empty object used to fill inputs will empty values when create new subCategory
-        $subCategory = new SubCategory();
+        $subCategory = new SubCategory;
         $categories = Category::all();
+
         return view('admin.sub-category.create', compact('categories', 'subCategory'));
     }
 
@@ -44,6 +44,7 @@ class SubCategoryController extends Controller
         $request['slug'] = Str::slug($request->name);
         SubCategory::create($request->all());
         toastr('Created Successfully');
+
         return redirect()->route('admin.sub-category.index');
     }
 
@@ -63,6 +64,7 @@ class SubCategoryController extends Controller
 
         $subCategory = SubCategory::findOrFail($id);
         $categories = Category::all();
+
         return view('admin.sub-category.edit', compact('categories', 'subCategory'));
     }
 
@@ -82,6 +84,7 @@ class SubCategoryController extends Controller
         $subCategory['slug'] = Str::slug($request->name);
         $subCategory->update($request->all());
         toastr('Created Successfully');
+
         return redirect()->route('admin.sub-category.index');
     }
 
@@ -92,19 +95,20 @@ class SubCategoryController extends Controller
     {
         $subCategory = SubCategory::find($id);
 
-        if (!isset($subCategory)) {
+        if (! isset($subCategory)) {
             return response(['status' => 'error', 'message' => 'Can not delete, the item not found.']);
         }
 
         $subCategory->delete();
         toastr('Deleted Successfully');
+
         return response(['status' => 'success', 'message' => 'Deleted sucessfully']);
     }
 
     //get sub categories-----------------------------------------------------
     public function getSubCategories(Request $request)
     {
-        return  SubCategory::where('category_id', $request->id)->get();
+        return SubCategory::where('category_id', $request->id)->get();
     }
 
     //change status using ajax request--------------------------------------------------
@@ -112,7 +116,7 @@ class SubCategoryController extends Controller
     {
         $subCategory = SubCategory::findOrFail($request->id);
 
-        $request->status == "true" ? $subCategory->status = 'active' : $subCategory->status = 'inactive';
+        $request->status == 'true' ? $subCategory->status = 'active' : $subCategory->status = 'inactive';
         $subCategory->save();
 
         return response(['message' => 'Status has been updated']);
