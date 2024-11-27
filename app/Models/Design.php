@@ -9,8 +9,11 @@ class Design extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'category_id', 'description', 'status', 'thumbnail'];
+    protected $fillable = ['name', 'category_id', 'description', 'status', 'thumbnail', 'title'];
 
+    protected $casts = [
+        'description' => 'array'
+    ];
     // relations
     public function images()
     {

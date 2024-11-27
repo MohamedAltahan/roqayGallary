@@ -21,7 +21,7 @@ class DesignController extends Controller
     public function create()
     {
         $categories = Category::all();
-
+        // dd($categories);
         return view('admin.design.create', compact('categories'));
     }
 
@@ -33,44 +33,45 @@ class DesignController extends Controller
 
         $request->validate([
             'name' => ['required'],
-            'thumbnail' => ['image', 'max:20000'],
-            'video_thumbnail' => ['image', 'max:20000'],
+            // 'thumbnail' => ['image', 'max:20000'],
+            // 'video_thumbnail' => ['image', 'max:20000'],
             'image.*' => ['image'],
-            'video' => ['mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4'],
+            // 'video' => ['mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4'],
+            'description' => ['stirng', 'max:4000'],
             'category_id' => ['required', 'integer'],
             'status' => ['required'],
         ]);
 
-        if ($request->has('thumbnail')) {
-            $thumbnail = $this->fileUplaod($request, 'myDisk', 'thumbnails', 'thumbnail');
-        } else {
-            $thumbnail = null;
-        }
+        // if ($request->has('thumbnail')) {
+        //     $thumbnail = $this->fileUplaod($request, 'myDisk', 'thumbnails', 'thumbnail');
+        // } else {
+        //     $thumbnail = null;
+        // }
 
         $design = Design::create([
-            'thumbnail' => $thumbnail,
+            // 'thumbnail' => $thumbnail,
             'name' => $request->name,
             'category_id' => $request->category_id,
-            'sub_category_id' => $request->sub_category_id,
+            'description' => $request->description,
             'status' => $request->status,
         ]);
 
         //uplaod video_thumbnail
-        if ($request->has('video_thumbnail')) {
-            $video_thumbnail = $this->fileUplaod($request, 'myDisk', 'video_thumbnail', 'video_thumbnail');
-        } else {
-            $video_thumbnail = null;
-        }
+        // if ($request->has('video_thumbnail')) {
+        //     $video_thumbnail = $this->fileUplaod($request, 'myDisk', 'video_thumbnail', 'video_thumbnail');
+        // } else {
+        //     $video_thumbnail = null;
+        // }
 
-        if ($request->has('video')) {
-            $video = $this->fileUplaod($request, 'myDisk', 'videos', 'video');
-            Video::create([
-                'design_id' => $design->id,
-                'name' => $video,
-                'video_thumbnail' => $video_thumbnail,
-                'at_home' => 'no',
-            ]);
-        }
+        // if ($request->has('video')) {
+        //     $video = $this->fileUplaod($request, 'myDisk', 'videos', 'video');
+        //     Video::create([
+        //         'design_id' => $design->id,
+        //         'name' => $video,
+        //         'video_thumbnail' => $video_thumbnail,
+        //         'at_home' => 'no',
+        //     ]);
+        // }
 
         if ($request->has('image')) {
             $images = $this->filesUplaod($request, 'myDisk', 'images', 'image');

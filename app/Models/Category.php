@@ -11,6 +11,10 @@ class Category extends Model
 
     protected $fillable = ['id', 'name', 'slug', 'icon', 'status', 'created_at', 'updated_at'];
 
+    protected $casts = [
+        'name' => 'array'
+    ];
+
     // relations
     public function design()
     {

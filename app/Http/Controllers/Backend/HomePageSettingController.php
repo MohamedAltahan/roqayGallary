@@ -13,30 +13,34 @@ class HomePageSettingController extends Controller
 {
     use fileUploadTrait;
 
-    //============================================================
     public function update(Request $request)
     {
-        $request->validate([
-            'image' => ['image'],
-            'main_title' => ['max:4000'],
-            'description' => ['max:4000'],
+        $data =  $request->validate([
+            'main_image' => ['image'],
+            'main_title' => ['array', 'max:4000'],
+            'main_description' => ['array', 'max:4000'],
+            'sub_title' => ['array', 'max:4000'],
+            'sub_description' => ['array', 'max:4000'],
         ]);
 
-        $setting = $request->except('image');
-        if ($request->has('image')) {
-            $setting['image'] = $this->fileUplaod($request, 'myDisk', 'homePageImage', 'image');
+        $currentData = HomePageSetting::where('group', 'home_page_settings')->where('name', 'header')->first()?->payload;
+
+        if ($request->has('main_image')) {
+            $data['main_image'] = $this->fileUpdate($request, 'myDisk', 'homePageImage', 'main_image', @$currentData['main_image']);
+        } else {
+            $data['main_image'] = @$currentData['main_image'];
         }
 
         HomePageSetting::updateOrCreate(
-            ['id' => 1],
-            $setting
+            ['group' => 'home_page_settings', 'name' => 'header'],
+            ['group' => 'home_page_settings', 'name' => 'header', 'payload' => $data]
         );
+
         toastr('Updated successfully!', 'success', 'success');
 
         return redirect()->back();
     }
 
-    //============================================================
     public function mediaOnHomePageUpdate(Request $request)
     {
         $request->validate([
@@ -75,7 +79,6 @@ class HomePageSettingController extends Controller
         return redirect()->back();
     }
 
-    //change status using ajax request--------------------------------------------------
     public function changeStatus(Request $request)
     {
         $setting = HomePageSetting::first();

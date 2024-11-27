@@ -2,15 +2,13 @@
 
 @section('content')
     <div class="dt-sc-hr-invisible-small"></div>
-    @dd($categories)
     <div class="fullwidth-section">
         <!-- **Full-width-section Starts Here** -->
         <div class="container">
             <div class="main-title animate" data-animation="pullDown" data-delay="100">
-                <h2 class="aligncenter">Portfolio</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do
+                <h2 class="aligncenter">{!! @$homePageHeader['sub_title'][App::getLocale()] !!}</h2>
+                <p style="font-size: 22px">
+                    {!! @$homePageHeader['sub_description'][App::getLocale()] !!}
                 </p>
             </div>
         </div>
@@ -19,33 +17,32 @@
     <div class="clear"></div>
 
     <div class="fullwidth-section">
-        <div class="blog-section">
-            <article class="blog-entry type2">
-                <div class="entry-details">
-                    <div class="entry-title">
-                        <h3><a href="blog-detail.html">Encaustic</a></h3>
+        @foreach ($categories as $category)
+            <div class="blog-section">
+                <article class="blog-entry @if ($loop->index % 2 == 0) type2 @endif">
+                    <div class="entry-details">
+                        <div class="entry-title">
+                            <h3>{{ $category['name'][App::getLocale()] }}</h3>
+                        </div>
+                        <div class="entry-body">
+                            <p style="font-size: 22px">
+                                {{ @$category->design['description'][App::getLocale()] }}
+                            </p>
+                        </div>
+                        <a class="type1 dt-sc-button small" href="gallery-detail-with-lhs.html">{{ __('View Gallery') }}<i
+                                class="fa fa-angle-right"></i></a>
                     </div>
-                    <div class="entry-body">
-                        <p style="font-size: 22px">
-                            Encaustic painting technique in which pigments
-                            are mixed with hot, liquid wax. After all of the colours
-                            have been applied to the painting surface, a heating
-                            element is passed over them until the individual brush
-                            or spatula marks fuse into a uniform film.
-                        </p>
+                    <div class="entry-thumb">
+                        <ul class="blog-slider">
+                            <li>
+                                <img src="http://via.placeholder.com/955x470&text=Blog+Slider5" alt=""
+                                    title="" />
+                            </li>
+                        </ul>
                     </div>
-                    <a class="type1 dt-sc-button small" href="gallery-detail-with-lhs.html">View
-                        Gallery<i class="fa fa-angle-right"></i></a>
-                </div>
-                <div class="entry-thumb">
-                    <ul class="blog-slider">
-                        <li>
-                            <img src="http://via.placeholder.com/955x470&text=Blog+Slider5" alt="" title="" />
-                        </li>
-                    </ul>
-                </div>
-            </article>
-        </div>
+                </article>
+            </div>
+        @endforeach
     </div>
     <!-- **Full-width-section Ends Here** -->
     <div class="clear"></div>

@@ -33,12 +33,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+
         $request->validate([
-            'name' => ['required', 'max:200', 'unique:categories,name'],
+            'name' => ['array', 'required', 'max:200'],
             'status' => ['required'],
         ]);
-        $slug = Str::slug($request->name);
+
+        $slug = Str::slug($request->name['en']);
         $request->merge(['slug' => $slug]);
         Category::create($request->all());
 
@@ -72,12 +73,12 @@ class CategoryController extends Controller
     {
 
         $request->validate([
-            'name' => ['required', 'max:200', "unique:categories,name, $id"],
+            'name' => ['array', 'required', 'max:200'],
             'status' => ['required'],
         ]);
 
         $category = Category::findOrFail($id);
-        $category['slug'] = Str::slug($request->name);
+        $category['slug'] = Str::slug($request['name']['en']);
         $category->update($request->all());
 
         toastr('updated Successfully');

@@ -17,15 +17,12 @@ class SettingController extends Controller
 {
     use fileUploadTrait;
 
-    //________________________________________________________________
     public function index()
     {
         $setting = Setting::first();
         $logoSetting = LogoSetting::first();
         $content = About::first();
-        $homePage = HomePageSetting::first();
-        $videos = Video::where('at_home', 'yes')->get();
-        $images = Image::where('at_home', 'yes')->get();
+        $homePage = HomePageSetting::where(['group' => 'home_page_settings', 'name' => 'header'])->first()?->payload;
         $color = WebsiteColor::first();
 
         return view('admin.setting.index', compact(
@@ -33,13 +30,10 @@ class SettingController extends Controller
             'logoSetting',
             'content',
             'homePage',
-            'videos',
-            'images',
             'color'
         ));
     }
 
-    //__________________________________________________________________
     public function generalSettingUpdate(Request $request)
     {
         $request->validate([

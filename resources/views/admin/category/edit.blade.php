@@ -13,7 +13,13 @@
             @method('PUT')
 
             <div class="form-group">
-                <x-form.input name="name" label="Name" value="{{ $category->name }}" class="form-control" />
+                <x-form.input name="name[en]" label="Name(English)" value="{{ $category['name']['en'] }}"
+                    class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <x-form.input name="name[ar]" label="Name(Arabic)" value="{{ $category['name']['ar'] }}"
+                    class="form-control" />
             </div>
 
             <div class="form-group">

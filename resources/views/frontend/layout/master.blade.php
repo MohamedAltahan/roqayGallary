@@ -102,14 +102,14 @@
                     <!-- **header-wrapper Starts** -->
                     @include('frontend.layout.navbar')
                 </div>
-                @if (Route::is('home') && $homePageSetting->banner_at_home == 'active')
+                @if (Route::is('home'))
                     @include('frontend.layout.head')
                 @endif
                 <div id="main">
                     <section id="primary" class="content-full-width">
 
                         @yield('content')
-                        @include('frontend.layout.about-me')
+                        {{-- @include('frontend.layout.about-me') --}}
                         @include('frontend.layout.footer')
                         <div class="dt-sc-hr-invisible-small"></div>
 

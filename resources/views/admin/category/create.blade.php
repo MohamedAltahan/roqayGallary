@@ -12,10 +12,12 @@
         <form action="{{ route('admin.category.store') }}" method="POST">
             @csrf
 
-
+            <div class="form-group">
+                <x-form.input name="name[en]" label="Name(English)" class="form-control" />
+            </div>
 
             <div class="form-group">
-                <x-form.input name="name" label="Name" class="form-control" />
+                <x-form.input name="name[ar]" label="Name(Arabic)" class="form-control" />
             </div>
 
             <div class="form-group">

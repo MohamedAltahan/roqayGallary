@@ -11,10 +11,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $homePageSetting = HomePageSetting::first();
-        $categories = Category::with('design')->get();
+        $homePageHeader = HomePageSetting::where(['name' => 'header', 'group' => 'home_page_settings'])->value('payload');
 
-        return view('frontend.pages.home', compact('homePageSetting', 'categories'));
+        $categories = Category::with('design')->where('status', 'active')->get();
+
+        return view('frontend.pages.home', compact('homePageHeader', 'categories'));
     }
 
     public function about()

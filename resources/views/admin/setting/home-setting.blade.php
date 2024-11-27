@@ -5,33 +5,62 @@
                 @csrf
                 @method('PUT')
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="status-on-frontend" style="color: red">show (banner) on the Home page:</label>
-                    </div>
-                    <div class="col-md-2 ">
-                        <label class="custom-switch ">
-                            <input type="checkbox" name="status" id='status'
-                                class="custom-switch-input status-on-frontend"
-                                {{ @$homePage->banner_at_home == 'active' ? 'checked' : '' }}>
-                            <span class="custom-switch-indicator"></span>
-                        </label>
-                    </div>
+                <img src="{{ asset('uploads/' . @$homePage['main_image']) }}" width="200px" alt="iamge">
+                <div class="form-group">
+                    <x-form.input type="file" class="form-control" name="main_image"
+                        label='select home page photo(1080x1920)' />
                 </div>
 
-                <img src="{{ asset('uploads/' . @$homePage->image) }}" width="200px" alt="iamge">
+                <hr style="height: 2px;background-color:black">
+
                 <div class="form-group">
-                    <x-form.input type="file" class="form-control" name="image" label='Home page photo' />
+                    <label style="font-size:15px" for="">Main title(appears on home photo)(English)</label>
+                    <textarea class="form-control " name="main_title[en]">{{ @$homePage['main_title']['en'] }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Main title</label>
-                    <textarea class="form-control summernote" name="main_title">{{ @$homePage->main_title }}</textarea>
+                    <label style="font-size:15px" for="">Main title(appears on home photo)(Arabic)</label>
+                    <textarea class="form-control " name="main_title[ar]">{{ @$homePage['main_title']['ar'] }}</textarea>
+                </div>
+
+                <hr style="height: 2px;background-color:black">
+
+                <div class="form-group">
+                    <label style="font-size:15px" for="">Main description (will appear under "Main
+                        title")(English)</label>
+                    <textarea class="form-control " name="main_description[en]" label='description'>{{ @$homePage['main_description']['en'] }}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Description (will appear under "main title")</label>
-                    <textarea class="form-control summernote" name="description" label='description'>{{ @$homePage->description }}</textarea>
+                    <label style="font-size:15px" for="">Main description (will appear under "Main
+                        title")(Arabic)</label>
+                    <textarea class="form-control " name="main_description[ar]" label='description'>{{ @$homePage['main_description']['ar'] }}</textarea>
+                </div>
+
+                <hr style="height: 2px;background-color:black">
+
+                <div class="form-group">
+                    <label style="font-size:15px" for="">Minor title(appears under home photo)(English)</label>
+                    <textarea class="form-control " name="sub_title[en]">{{ @$homePage['sub_title']['en'] }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label style="font-size:15px" for="">Minor title(appears under home photo)(Arabic)</label>
+                    <textarea class="form-control " name="sub_title[ar]">{{ @$homePage['sub_title']['ar'] }}</textarea>
+                </div>
+
+                <hr style="height: 2px;background-color:black">
+
+                <div class="form-group">
+                    <label style="font-size:15px" for="">Minor Description (will appear under "Minor
+                        title")(English)</label>
+                    <textarea class="form-control " name="sub_description[en]">{{ @$homePage['sub_description']['en'] }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label style="font-size:15px" for="">Minor Description (will appear under "Minor
+                        title")(Arabic)</label>
+                    <textarea class="form-control " name="sub_description[ar]">{{ @$homePage['sub_description']['ar'] }}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>
@@ -39,30 +68,3 @@
         </div>
     </div>
 </div>
-@push('scripts')
-    <script>
-        // change status-------------------------------------------------------
-        $(document).ready(function() {
-            $('body').on('click', '.status-on-frontend', function() {
-                let isChecked = $(this).is(':checked');
-                $.ajax({
-                    method: 'PUT',
-                    url: "{{ route('admin.banner-at-home.change-status') }}",
-                    data: {
-                        // status is the name of the value "ischecked" in you php function
-                        status: isChecked,
-                        _token: "{{ csrf_token() }}"
-                    },
-                    success: function(data) {
-                        toastr.success(data.message)
-                    },
-                    error: function(error) {
-                        toastr.error('Not updated')
-                    }
-
-
-                })
-            })
-        })
-    </script>
-@endpush
