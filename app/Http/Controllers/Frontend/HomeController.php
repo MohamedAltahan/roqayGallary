@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $homePageHeader = HomePageSetting::where(['name' => 'header', 'group' => 'home_page_settings'])->value('payload');
-        $categories = Category::with('design')->where('status', 'active')->get();
+        $categories = Category::with('design')->whereHas('design')->where('status', 'active')->get();
 
         return view('frontend.pages.home', compact('homePageHeader', 'categories'));
     }

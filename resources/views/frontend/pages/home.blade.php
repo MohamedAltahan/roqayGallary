@@ -22,7 +22,7 @@
                 <article class="blog-entry @if ($loop->index % 2 == 0) type2 @endif">
                     <div class="entry-details">
                         <div class="entry-title">
-                            <h3>{{ $category['name'][App::getLocale()] }}</h3>
+                            <h3>{{ $category->design['name'][App::getLocale()] }}</h3>
                         </div>
                         <div class="entry-body">
                             <p style="font-size: 22px">

@@ -101,10 +101,7 @@ class CategoryController extends Controller
         if (isset($design)) {
             return response(['status' => 'error', 'message' => 'Can not delete this category, it contains items inside.']);
         }
-        // $subCategoryCount = SubCategory::where('category_id', $id)->count();
-        // if ($subCategoryCount > 0) {
-        //     return response(['status' => 'error', 'message' => 'Can not delete, this category has sub categories.']);
-        // }
+
 
         $category->delete();
         toastr('Deleted Successfully');

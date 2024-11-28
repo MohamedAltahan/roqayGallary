@@ -45,7 +45,7 @@ class DesignController extends Controller
 
         toastr('Saved successfully');
 
-        return redirect()->route('admin.design.edit', $design->id);
+        return redirect()->route('admin.show-designs.index', $design->id);
     }
 
     /**
@@ -92,7 +92,7 @@ class DesignController extends Controller
         foreach ($design->images as $image) {
             $this->deleteFile('myDisk', $image->name);
         }
-        Image::where('design_id', $design->id)->delete();
+        Image::where('images_group_key', $design->images_group_key)->delete();
 
         $design->delete();
 

@@ -39,6 +39,8 @@
             @csrf
             @method('PUT')
 
+            <x-form.input name='images_group_key' type='hidden' value='{{ $design->images_group_key }}' />
+
             <div class="form-group">
                 <x-form.input name="name[en]" label="Design name(English)" class="form-control"
                     value="{{ $design['name']['en'] }}" />
@@ -59,7 +61,6 @@
                     value="{{ $design['description']['ar'] }}" />
             </div>
 
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -77,7 +78,14 @@
                         </select>
                     </div>
                 </div>
+            </div>
 
+            <div class="form-group">
+                <label for="" style="font-size: 15px">status</label>
+                <select name="status" id="inputStatus" class="form-control">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>

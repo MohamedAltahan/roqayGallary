@@ -98,7 +98,7 @@
         <!-- **Wrapper** -->
         <div class="wrapper">
             <div class="inner-wrapper" style="position: relative">
-                <div id="header-wrapper" class="dt-sticky-menu" style="position: absolute">
+                <div id="header-wrapper" class="" style="position: absolute">
                     <!-- **header-wrapper Starts** -->
                     @include('frontend.layout.navbar')
                 </div>

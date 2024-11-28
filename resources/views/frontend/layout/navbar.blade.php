@@ -1,62 +1,85 @@
-{{-- <div class="container-xxl position-relative p-0">
-    <nav class="navbar navbar_color sticky-top shadow-sm navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-        <a href="{{ url('/') }}" class="navbar-brand p-0">
-            <img class="mb-3" src="{{ asset('uploads/' . $logo->main_logo) }}" alt="Logo">
-            <h1 class="m-0 text-warning" style="display: inline-block;font-family: 'Varela Round', sans-serif;">
-                {{ $setting->site_name }}</h1>
-        </a>
-        <button class="navbar-toggler text_color" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse">
-            <span class="fa fa-bars"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav mx-auto py-0">
-                <a href="{{ route('about') }}" class="nav-item nav-link text_color {{ setActive(['about']) }}">About</a>
-                <a href="{{ route('contact.index') }}"
-                    class="nav-item nav-link text_color {{ setActive(['contact.*']) }}">Contact</a>
-                @foreach ($categories as $category)
-                    <a href="{{ route('category.show', ['id' => $category->id]) }}"
-                        class="nav-item nav-link text_color @if (request()->is("category/$category->id")) active @endif ">
-                        {{ $category->name }}</a>
-                @endforeach
-            </div>
+ <style>
+     .navbar {
+         padding: 0.0rem 1rem;
+         background: transparent !important;
+         /* Adjust padding for aesthetic spacing */
+     }
 
-        </div>
-    </nav>
-    @if (Route::is('home') && $homePageSetting->banner_at_home == 'active')
-        @include('frontend.layout.head')
-    @endif
-</div> --}}
+     .navbar-brand {
+         font-size: 1.5rem;
+         /* Adjust font size for logo and site name */
+         font-weight: bold;
+     }
+
+     .navbar-nav .nav-link {
+         background: transparent !important;
+         font-size: 1.6rem;
+         /* Suitable font size for menu items */
+         padding: 0.5rem 1rem;
+         color: white;
+         /* Adjust padding for better spacing */
+     }
+
+     .navbar-toggler {
+         background: transparent !important;
+         color: white;
+         border: none;
+         /* Remove border from the toggler button */
+     }
+
+     .navbar-collapse {
+         background: transparent !important;
+         justify-content: flex-end;
+         /* Align menu items to the right */
+     }
+
+     .navbar-light .navbar-toggler-icon {
+         background-image: ;
+         width: 1.5rem;
+         height: 1.5rem;
+         background-size: cover;
+         background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http://www.w3.org/2000/svg%22 viewBox%3D%220 0 30 30%22 fill%3D%22%23ffffff%22%3E%3Cpath stroke%3D%22rgba(255%2C 255%2C 255%2C 1)%22 stroke-linecap%3D%22round%22 stroke-miterlimit%3D%2210%22 stroke-width%3D%222%22 d%3D%22M4 7h22M4 15h22M4 23h22%22/%3E%3C/svg%3E');
+
+     }
+
+     .dropdown-menu {
+         background: transparent !important;
+         border: none;
+     }
+ </style>
+
+ <nav class="navbar navbar-expand-lg navbar-light">
+     <div class="container menu-container ">
+
+         <!-- Logo and Site Name -->
+         <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+             <img alt="Logo" width="80" class="m-2" src="{{ asset('uploads/' . $logo->main_logo) }}" />
+             <h1 class="text-warning m-2">
+                 {{ $setting->site_name }}</h1>
+         </a>
 
 
-<section id="" class="" style="position: absolute;">
-    <div class="container menu-container">
-        <a class="logo" href="{{ url('/') }}"><img alt="Logo" width="80"
-                src="{{ asset('uploads/' . $logo->main_logo) }}" />
-            <h1 class=" text-warning" style="display: inline-block;">
-                {{ $setting->site_name }}</h1>
-        </a>
-        <a href="javascript:;" class="total-overlay-trigger"></a>
-    </div>
-
-</section>
-<div class="total-overlay-sticky">
-    <nav id="navigation">
-        <ul class="menu type2">
-            <li class="logo">
-                <a href="#"><img width="100" alt="Logo"
-                        src="{{ asset('uploads/' . $logo->main_logo) }}" /></a>
-            </li>
-
-            <li class="menu-item-simple-parent">
-                <a title="About" href="{{ route('about') }}">About Us</a>
-            </li>
-
-            <li class="menu-item-simple-parent">
-                <a title="Contact" href="{{ route('contact.index') }}">Contact</a>
-            </li>
-
-        </ul>
-    </nav>
-    <a href="javascript:;" class="total-overlay-sticky-close"></a>
-</div>
+         <!-- Toggler for mobile -->
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+         </button>
+         <!-- Menu items -->
+         <div class="collapse navbar-collapse" id="navbarNav">
+             <ul class="navbar-nav">
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('about') }}">{{ __('About') }}</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">{{ __('Services') }}</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">{{ __('Contact') }}</a>
+                 </li>
+             </ul>
+         </div>
+     </div>
+ </nav>
