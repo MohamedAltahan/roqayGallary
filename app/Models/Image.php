@@ -9,5 +9,11 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'design_id', 'at_home'];
+    protected $fillable = ['name',  'images_group_key', 'at_home'];
+
+
+    public function design()
+    {
+        return $this->belongsTo(Design::class, 'images_group_key', 'images_group_key');
+    }
 }

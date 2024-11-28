@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('designs', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
+            $table->json('name');
+            $table->varchar('images_group_key', 20)->nullable();
+            $table->json('title')->nullable();
             $table->text('thumbnail')->nullable();
-            $table->text('category_id');
-            $table->text('description')->nullable();
+            $table->foreignId('category_id');
+            $table->json('description')->nullable();
             $table->enum('status', ['active', 'inactive']);
             $table->timestamps();
         });

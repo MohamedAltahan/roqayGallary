@@ -10,6 +10,7 @@ use App\Models\SubCategory;
 use App\Models\Video;
 use App\Traits\fileUploadTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DesignController extends Controller
 {
@@ -20,9 +21,10 @@ class DesignController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        // dd($categories);
-        return view('admin.design.create', compact('categories'));
+        $this->deleteUselessImages();
+        $categories = Category::with('design')->get();
+        $imagesGroupKey = Str::random(10);
+        return view('admin.design.create', compact('categories', 'imagesGroupKey'));
     }
 
     /**
@@ -31,57 +33,15 @@ class DesignController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => ['required'],
-            // 'thumbnail' => ['image', 'max:20000'],
-            // 'video_thumbnail' => ['image', 'max:20000'],
-            'image.*' => ['image'],
-            // 'video' => ['mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4'],
-            'description' => ['stirng', 'max:4000'],
+        $data =   $request->validate([
+            'name.*' => ['required'],
+            'description.*' => ['required', 'max:4000'],
             'category_id' => ['required', 'integer'],
             'status' => ['required'],
+            'images_group_key' => ['required', 'string', 'max:20'],
         ]);
 
-        // if ($request->has('thumbnail')) {
-        //     $thumbnail = $this->fileUplaod($request, 'myDisk', 'thumbnails', 'thumbnail');
-        // } else {
-        //     $thumbnail = null;
-        // }
-
-        $design = Design::create([
-            // 'thumbnail' => $thumbnail,
-            'name' => $request->name,
-            'category_id' => $request->category_id,
-            'description' => $request->description,
-            'status' => $request->status,
-        ]);
-
-        //uplaod video_thumbnail
-        // if ($request->has('video_thumbnail')) {
-        //     $video_thumbnail = $this->fileUplaod($request, 'myDisk', 'video_thumbnail', 'video_thumbnail');
-        // } else {
-        //     $video_thumbnail = null;
-        // }
-
-        // if ($request->has('video')) {
-        //     $video = $this->fileUplaod($request, 'myDisk', 'videos', 'video');
-        //     Video::create([
-        //         'design_id' => $design->id,
-        //         'name' => $video,
-        //         'video_thumbnail' => $video_thumbnail,
-        //         'at_home' => 'no',
-        //     ]);
-        // }
-
-        if ($request->has('image')) {
-            $images = $this->filesUplaod($request, 'myDisk', 'images', 'image');
-            foreach ($images as $image) {
-                Image::create([
-                    'design_id' => $design->id,
-                    'name' => $image,
-                ]);
-            }
-        }
+        $design = Design::create($data);
 
         toastr('Saved successfully');
 
@@ -93,12 +53,10 @@ class DesignController extends Controller
      */
     public function edit(string $id)
     {
+        $design = Design::with('images')->findOrFail($id);
+        $categories = Category::with('design')->get();
 
-        $design = Design::with('images', 'videos')->findOrFail($id);
-        $categories = Category::all();
-        $subCategories = SubCategory::where('category_id', $design->category_id)->get();
-
-        return view('admin.design.edit', compact('design', 'categories', 'subCategories'));
+        return view('admin.design.edit', compact('design', 'categories'));
     }
 
     /**
@@ -106,54 +64,19 @@ class DesignController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'name' => ['required'],
-            'thumbnail' => ['image', 'max:20000'],
-            'image.*' => ['image'],
-            'video.*' => ['mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4'],
+        $data = $request->validate([
+            'name.*' => ['required'],
+            'description.*' => ['required', 'max:4000'],
             'category_id' => ['required', 'integer'],
-            'category_id' => ['sometimes', 'integer'],
+            'status' => ['required'],
+            'images_group_key' => ['required', 'string', 'max:20'],
         ]);
 
         $design = Design::findOrFail($id);
 
-        $updatedDesignData = $request->except('video', 'image');
+        $design->update($data);
 
-        if ($request->has('thumbnail')) {
-            $oldImagePath = $design->thumbnail;
-            $updatedDesignData['thumbnail'] = $this->fileUpdate($request, 'myDisk', 'thumbnails', 'thumbnail', $oldImagePath);
-        }
-
-        //uplaod video_thumbnail
-        if ($request->has('video_thumbnail')) {
-            $video_thumbnail = $this->fileUplaod($request, 'myDisk', 'video_thumbnail', 'video_thumbnail');
-        } else {
-            $video_thumbnail = null;
-        }
-
-        if ($request->has('video')) {
-            $video = $this->fileUplaod($request, 'myDisk', 'videos', 'video');
-            Video::create([
-                'design_id' => $design->id,
-                'name' => $video,
-                'video_thumbnail' => $video_thumbnail,
-                'at_home' => 'no',
-            ]);
-        }
-
-        if ($request->has('image')) {
-            $images = $this->filesUplaod($request, 'myDisk', 'images', 'image');
-            foreach ($images as $image) {
-                Image::create([
-                    'design_id' => $design->id,
-                    'name' => $image,
-                ]);
-            }
-        }
-
-        $design->update($updatedDesignData);
-
-        toastr('Added successfully');
+        toastr('Updated successfully');
 
         return redirect()->route('admin.show-designs.index');
     }
@@ -163,17 +86,7 @@ class DesignController extends Controller
      */
     public function destroy(string $id)
     {
-
         $design = Design::findOrFail($id);
-
-        $this->deleteFile('myDisk', $design->thumbnail);
-
-        //delete videos from files then form database
-        foreach ($design->videos as $video) {
-            $this->deleteFile('myDisk', $video->video_thumbnail);
-            $this->deleteFile('myDisk', $video->name);
-        }
-        Video::where('design_id', $design->id)->delete();
 
         //delete photos from files then form database
         foreach ($design->images as $image) {
@@ -186,7 +99,6 @@ class DesignController extends Controller
         return response(['status' => 'success', 'message' => 'Deleted successfully']);
     }
 
-    //change status using ajax request _________________________________________________________
     public function changeStatus(Request $request)
     {
         $design = Design::findOrFail($request->id);
@@ -197,44 +109,43 @@ class DesignController extends Controller
         return response(['message' => 'Status has been updated']);
     }
 
-    //delete Product Images using ajax____________________________________________________________
-    public function deleteDesignImage(Request $request)
+    //product image upload for dropzone request
+    public function uploadImage(Request $request, $id)
     {
-        $design_image = Image::findOrFail($request->image_id);
-        $design_image->delete();
-        $this->deleteFile('myDisk', $design_image->name);
-    }
-
-    //delete video thumbnail using ajax____________________________________________________________
-    public function deleteVideoThumbnail(Request $request)
-    {
-        $video = Video::findOrFail($request->video_id);
-        $this->deleteFile('myDisk', $video->video_thumbnail);
-        $video->update(['video_thumbnail' => null]);
-    }
-
-    //delete video using ajax____________________________________________________________
-    public function deleteDesignVideo(Request $request)
-    {
-        $design_video = Video::findOrFail($request->video_id);
-        $this->deleteFile('myDisk', $design_video->name);
-        $this->deleteFile('myDisk', $design_video->video_thumbnail);
-        $design_video->delete();
-    }
-
-    //updateVideoThumbnail______________________________________________________________________
-    public function updateVideoThumbnail(Request $request, $id)
-    {
-        if ($request->has('video_thumbnail')) {
-            $video_thumbnail = $this->fileUplaod($request, 'myDisk', 'video_thumbnail', 'video_thumbnail');
+        if ($request->hasFile('file')) {
+            $imagePath = $this->fileUplaod($request, 'myDisk', 'designGallery', 'file');
+            $image = new Image();
+            $image['name'] = $imagePath;
+            $image['images_group_key'] = $id;
+            $image->save();
+            return response($image->id);
+        } else {
+            return response(['e' => 'e']);
         }
-        $video = Video::findOrFail($id);
-        $video->update(['video_thumbnail' => $video_thumbnail]);
+    }
+    //get Product Images using ajax
+    public function getImage(Request $request)
+    {
+        $images = Image::where('images_group_key', $request->images_group_key)->get();
+        return view('admin.design.images', compact('images'));
+    }
 
-        if ($video->at_home) {
-            return redirect()->back();
+    //delete Product Images using ajax
+    public function deleteImage(Request $request)
+    {
+        $image = Image::findOrFail($request->id);
+        $image->delete();
+        $this->deleteFile('myDisk', $image->name);
+        $images = Image::where('images_group_key', $request->images_group_key)->get();
+        return view('admin.design.images', compact('images'));
+    }
+
+    public function deleteUselessImages()
+    {
+        $images = Image::whereDoesntHave('design')->get();
+        foreach ($images as $image) {
+            $this->deleteFile('myDisk', $image->name);
+            $image->delete();
         }
-
-        return redirect()->route('admin.design.edit', $video->design);
     }
 }

@@ -9,15 +9,17 @@ class Design extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'category_id', 'description', 'status', 'thumbnail', 'title'];
+    protected $fillable = ['name', 'category_id', 'description', 'status', 'thumbnail', 'title', 'images_group_key'];
 
     protected $casts = [
-        'description' => 'array'
+        'description' => 'array',
+        'name' => 'array',
+        'title' => 'array'
     ];
     // relations
     public function images()
     {
-        return $this->hasMany(Image::class, 'design_id', 'id');
+        return $this->hasMany(Image::class, 'images_group_key', 'images_group_key')->limit(4);
     }
 
     public function videos()

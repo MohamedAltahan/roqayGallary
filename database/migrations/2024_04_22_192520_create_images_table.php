@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('name');
             $table->enum('at_home', ['no', 'yes'])->default('no');
-            $table->integer('design_id')->nullable();
+            $table->varchar('images_group_key', 20)->nullable();
             $table->timestamps();
         });
     }

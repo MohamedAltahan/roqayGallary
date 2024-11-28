@@ -34,10 +34,12 @@
                     </div>
                     <div class="entry-thumb">
                         <ul class="blog-slider">
-                            <li>
-                                <img src="http://via.placeholder.com/955x470&text=Blog+Slider5" alt=""
-                                    title="" />
-                            </li>
+                            {{-- @dd($category->design->images) --}}
+                            @foreach ($category->design->images as $image)
+                                <li>
+                                    <img src="{{ asset('uploads/' . $image->name) }}" alt="" title="" />
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </article>

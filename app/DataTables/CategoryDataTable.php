@@ -26,14 +26,11 @@ class CategoryDataTable extends DataTable
 
                 return $editBtn . $deleteBtn;
             })
-            ->addColumn('name(en)', function ($query) {
+            ->addColumn('name', function ($query) {
 
-                return $query->name['en'];
+                return $query->name['en'] . ' - ' . $query->name['ar'];
             })
-            ->addColumn('name(ar)', function ($query) {
 
-                return $query->name['ar'];
-            })
             ->addColumn('status', function ($query) {
                 if ($query->status == 'active') {
                     $button = '<label class="custom-switch mt-2">
@@ -92,8 +89,7 @@ class CategoryDataTable extends DataTable
         return [
 
             Column::make('id'),
-            Column::make('name(en)'),
-            Column::make('name(ar)'),
+            Column::make('name'),
             Column::make('status')->width(60),
             Column::computed('action')
                 ->exportable(false)

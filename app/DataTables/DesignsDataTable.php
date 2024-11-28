@@ -20,31 +20,28 @@ class DesignsDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('thumbnail', function ($query) {
-                if ($query->thumbnail == null) {
-                    return 'no image';
-                }
 
-                return "<img width='100px' src='".asset('uploads/'.$query->thumbnail)."'></img>";
-            })
             ->addColumn('action', function ($query) {
-                $editBtn = "<a href='".route('admin.design.edit', $query->id)."'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Edit</a>";
-                $deleteBtn = "<a href='".route('admin.design.destroy', $query->id)."'class='btn btn-sm ml-1 my-1 btn-danger delete-item'><i class='fas fa-trash'></i>Delete</a>";
+                $editBtn = "<a href='" . route('admin.design.edit', $query->id) . "'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Edit</a>";
+                $deleteBtn = "<a href='" . route('admin.design.destroy', $query->id) . "'class='btn btn-sm ml-1 my-1 btn-danger delete-item'><i class='fas fa-trash'></i>Delete</a>";
 
-                return $editBtn.$deleteBtn;
+                return $editBtn . $deleteBtn;
             })
             ->addColumn('category', function ($query) {
-                return $query->category->name;
+                return $query->category->name['en'] . ' - ' . $query->category->name['ar'];
+            })
+            ->addColumn('DesignName', function ($query) {
+                return $query->name['en'] . ' - ' . $query->name['ar'];
             })
             ->addColumn('status', function ($query) {
                 if ($query->status == 'active') {
                     $button = '<label class="custom-switch mt-2">
-                        <input checked type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="change-status custom-switch-input">
+                        <input checked type="checkbox" name="custom-switch-checkbox" data-id="' . $query->id . '" class="change-status custom-switch-input">
                         <span class="custom-switch-indicator"></span>
                       </label>';
                 } else {
                     $button = '<label class="custom-switch mt-2">
-                        <input type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="change-status custom-switch-input ">
+                        <input type="checkbox" name="custom-switch-checkbox" data-id="' . $query->id . '" class="change-status custom-switch-input ">
                         <span class="custom-switch-indicator"></span>
                       </label>';
                 }
@@ -92,8 +89,7 @@ class DesignsDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('thumbnail'),
-            Column::make('name'),
+            Column::make('DesignName'),
             Column::make('category'),
             Column::make('status'),
             Column::computed('action')
@@ -109,6 +105,6 @@ class DesignsDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'ShowDesigns_'.date('YmdHis');
+        return 'ShowDesigns_' . date('YmdHis');
     }
 }

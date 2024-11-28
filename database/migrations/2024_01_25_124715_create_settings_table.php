@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->enum('banner_at_home', ['inactive', 'active'])->default('active');
-            $table->string('site_name');
-            $table->string('contact_email');
-            $table->string('contact_phone');
+            $table->text('site_description')->nullable();
+            $table->string('site_name')->nullable();
+            $table->string('contact_email')->nullable();
+            $table->string('contact_phone')->nullable();
             $table->string('contact_address')->nullable();
             $table->timestamps();
         });
