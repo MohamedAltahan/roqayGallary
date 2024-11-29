@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DesignDetailsController;
 use App\Http\Controllers\Frontend\HomeController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,5 +35,16 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('category/{id}', 'show')->name('category.show');
 });
 
-require __DIR__.'/admin.php';
-require __DIR__.'/adminAuth.php';
+Route::get('set-locale', function () {
+    $locale = 'en';
+    session(['locale' => $locale]);
+
+    $value = session('locale');
+
+    dd($value);
+    App::setLocale($locale);
+    return redirect()->back();
+});
+
+require __DIR__ . '/admin.php';
+require __DIR__ . '/adminAuth.php';

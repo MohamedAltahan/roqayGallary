@@ -3,21 +3,22 @@
     {{ __('About') }}
 @endsection
 @section('content')
-    <!-- Contact Start -->
-    <div class="container py-5 px-lg-5">
-        {{-- <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center"><span></span>About Us<span></span></p>
-        </div> --}}
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="wow fadeInUp" data-wow-delay="0.3s">
-                    <p class="text-center mb-4">
-                        {!! $about->content !!}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="breadcrumb"><!-- *BreadCrumb Starts here** -->
 
-    <!-- Contact End -->
+    </div><!-- *BreadCrumb Ends here** -->
+    <section id="primary" class="content-full-width" style="min-height: 50vh "> <!-- **Primary Starts Here** -->
+        <div class="container">
+
+            <div class="main-title " data-animation="pullDown" data-delay="1">
+                <h3> About {{ $setting->site_name }} </h3>
+            </div>
+
+            <div class="dt-sc-service-content">
+                <h4>
+                    {!! $about->content !!}
+                </h4>
+            </div>
+
+        </div>
+    </section><!-- **Primary Ends Here** -->
 @endsection

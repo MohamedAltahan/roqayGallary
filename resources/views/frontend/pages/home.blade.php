@@ -17,25 +17,25 @@
     <div class="clear"></div>
 
     <div class="fullwidth-section">
-        @foreach ($categories as $category)
+        @foreach ($designs as $design)
             <div class="blog-section">
                 <article class="blog-entry @if ($loop->index % 2 == 0) type2 @endif">
                     <div class="entry-details">
                         <div class="entry-title">
-                            <h3>{{ $category->design['name'][App::getLocale()] }}</h3>
+                            <h3>{{ @$design['name'][App::getLocale()] }}</h3>
                         </div>
                         <div class="entry-body">
                             <p style="font-size: 22px">
-                                {{ @$category->design['description'][App::getLocale()] }}
+                                {{ @$design['description'][App::getLocale()] }}
                             </p>
                         </div>
-                        <a class="type1 dt-sc-button small" href="gallery-detail-with-lhs.html">{{ __('View Gallery') }}<i
+                        <a class="type1 dt-sc-button small btn_color"
+                            href="{{ route('design-details.index', $design->id) }}">{{ __('View Gallery') }}<i
                                 class="fa fa-angle-right"></i></a>
                     </div>
                     <div class="entry-thumb">
                         <ul class="blog-slider">
-                            {{-- @dd($category->design->images) --}}
-                            @foreach ($category->design->images as $image)
+                            @foreach ($design->images as $image)
                                 <li>
                                     <img src="{{ asset('uploads/' . $image->name) }}" alt="" title="" />
                                 </li>

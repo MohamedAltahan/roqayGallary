@@ -50,6 +50,10 @@
             .modal-backdrop {
                 z-index: -1;
             }
+
+            label {
+                font-size: 15px !important;
+            }
         </style>
 
     </head>

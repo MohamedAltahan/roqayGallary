@@ -20,13 +20,14 @@ class ContactController extends Controller
     {
         $validData = $request->validate([
             'name' => 'required|max:100',
-            'email' => 'required|max:100|email',
+            'email' => 'max:100|email',
             'message' => 'required|max:1000',
             'phone' => 'required|max:30',
         ]);
 
         EmailInbox::create($validData);
-        toastr('Send successfully');
+
+        toastr(__('Sent successfully'));
 
         return redirect()->back();
     }

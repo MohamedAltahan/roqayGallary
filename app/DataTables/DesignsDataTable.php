@@ -27,9 +27,7 @@ class DesignsDataTable extends DataTable
 
                 return $editBtn . $deleteBtn;
             })
-            ->addColumn('category', function ($query) {
-                return $query->category->name['en'] . ' - ' . $query->category->name['ar'];
-            })
+
             ->addColumn('DesignName', function ($query) {
                 return $query->name['en'] . ' - ' . $query->name['ar'];
             })
@@ -57,7 +55,7 @@ class DesignsDataTable extends DataTable
      */
     public function query(Design $model): QueryBuilder
     {
-        return $model->orderBy('category_id')->newQuery();
+        return $model->orderBy('created_at')->newQuery();
     }
 
     /**
@@ -90,7 +88,6 @@ class DesignsDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('DesignName'),
-            Column::make('category'),
             Column::make('status'),
             Column::computed('action')
                 ->exportable(false)

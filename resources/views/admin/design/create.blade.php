@@ -2,6 +2,7 @@
 @section('mainTitle', 'Designs')
 @section('content')
 
+
     <div class="card-header">
         <h4>Create design</h4>
         <div class="card-header-action">
@@ -31,15 +32,29 @@
                 <x-form.input name="name[ar]" label="Design name(Arabic)" class="form-control" />
             </div>
 
+            <p class="text-danger">short description will appear on the home page </p>
+
             <div class="form-group">
-                <x-form.input name="description[en]" label="Design description(English)" class="form-control" />
+                <x-form.input name="description[en]" label="Short description(English)" class="form-control" />
             </div>
 
             <div class="form-group">
-                <x-form.input name="description[ar]" label="Design description(Arabic)" class="form-control" />
+                <x-form.input name="description[ar]" label="Short description(Arabic)" class="form-control" />
             </div>
 
-            <div class="row">
+            <p class="text-danger">Long description will appear in desing's details page </p>
+
+            <div class="form-group">
+                <label for="">Long description (English)</label>
+                <textarea class="form-control summernote" name="long_description[en]"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">Long description (Arabic)</label>
+                <textarea class="form-control summernote" name="long_description[ar]"></textarea>
+            </div>
+
+            {{-- <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="" style="font-size: 15px">Category</label>
@@ -53,7 +68,7 @@
                         </select>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <label for="" style="font-size: 15px">status</label>

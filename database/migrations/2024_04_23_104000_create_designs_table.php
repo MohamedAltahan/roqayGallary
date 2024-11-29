@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('thumbnail')->nullable();
             $table->foreignId('category_id');
             $table->json('description')->nullable();
+            $table->json('long_description')->nullable();
             $table->enum('status', ['active', 'inactive']);
             $table->timestamps();
         });

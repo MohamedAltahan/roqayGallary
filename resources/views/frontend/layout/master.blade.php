@@ -43,6 +43,7 @@
         <link href="{{ asset('frontend/css/prettyPhoto.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('frontend/css/pace.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('backend/assets/css/toastr.min.css') }}">
 
         <link id="light-dark-css" href="{{ asset('frontend/dark/dark.css') }}" rel="stylesheet" media="all" />
 
@@ -144,9 +145,11 @@
 
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.bxslider.min.js') }}"></script>
 
+        <script src="{{ asset('backend/assets/js/toastr.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.menu-2.js') }}"></script>
 
         <script src="{{ asset('frontend/js/custom.js') }}"></script>
+        @stack('scripts')
     </body>
 
 </html>

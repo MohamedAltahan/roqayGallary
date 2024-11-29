@@ -77,7 +77,7 @@
                      <a class="nav-link" href="#">{{ __('Services') }}</a>
                  </li>
                  <li class="nav-item">
-                     <a class="nav-link" href="#">{{ __('Contact') }}</a>
+                     <a class="nav-link" href="{{ route('contact.index') }}">{{ __('Contact') }}</a>
                  </li>
              </ul>
          </div>

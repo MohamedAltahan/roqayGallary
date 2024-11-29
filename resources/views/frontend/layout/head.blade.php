@@ -65,9 +65,10 @@
           <div class="main-banner">
               <div class="banner-content">
                   <h1 class="display-4 fw-bold">
-                      <span class="typing">Welcome to Our Website</span>
+
+                      <span class="typing">{{ $homePageHeader['main_title'][App::getLocale()] }}</span>
                   </h1>
-                  <p class="lead description">Discover amazing features and content crafted just for you.</p>
+                  <p class="lead description">{{ $homePageHeader['main_description'][App::getLocale()] }}</p>
               </div>
           </div>
 

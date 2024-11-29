@@ -2772,7 +2772,7 @@ ul.sub-menu li.current_page_item a::after {
     position: relative;
 }
 .main-title::before {
-    background: url("images/title-line.png") no-repeat;
+    background: url("../images/title-line.png") no-repeat;
     bottom: -15px;
     content: "";
     display: block;

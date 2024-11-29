@@ -22,9 +22,8 @@ class DesignController extends Controller
     public function create()
     {
         $this->deleteUselessImages();
-        $categories = Category::with('design')->get();
         $imagesGroupKey = Str::random(10);
-        return view('admin.design.create', compact('categories', 'imagesGroupKey'));
+        return view('admin.design.create', compact('imagesGroupKey'));
     }
 
     /**
@@ -35,8 +34,9 @@ class DesignController extends Controller
 
         $data =   $request->validate([
             'name.*' => ['required'],
-            'description.*' => ['required', 'max:4000'],
-            'category_id' => ['required', 'integer'],
+            'description.*' => ['required', 'max:1000'],
+            'long_description.*' => ['nullable', 'max:5000'],
+            // 'category_id' => ['required', 'integer'],
             'status' => ['required'],
             'images_group_key' => ['required', 'string', 'max:20'],
         ]);
@@ -54,9 +54,8 @@ class DesignController extends Controller
     public function edit(string $id)
     {
         $design = Design::with('images')->findOrFail($id);
-        $categories = Category::with('design')->get();
 
-        return view('admin.design.edit', compact('design', 'categories'));
+        return view('admin.design.edit', compact('design'));
     }
 
     /**
@@ -66,8 +65,9 @@ class DesignController extends Controller
     {
         $data = $request->validate([
             'name.*' => ['required'],
-            'description.*' => ['required', 'max:4000'],
-            'category_id' => ['required', 'integer'],
+            'description.*' => ['required', 'max:1000'],
+            'long_description.*' => ['nullable', 'max:5000'],
+            // 'category_id' => ['required', 'integer'],
             'status' => ['required'],
             'images_group_key' => ['required', 'string', 'max:20'],
         ]);

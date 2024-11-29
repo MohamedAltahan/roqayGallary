@@ -61,7 +61,17 @@
                     value="{{ $design['description']['ar'] }}" />
             </div>
 
-            <div class="row">
+            <div class="form-group">
+                <label for="">Long description (English)</label>
+                <textarea class="form-control summernote" name="long_description[en]">{{ $design['long_description']['en'] }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">Long description (Arabic)</label>
+                <textarea class="form-control summernote" name="long_description[ar]">{{ $design['long_description']['ar'] }}</textarea>
+            </div>
+
+            {{-- <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Category</label>
@@ -78,7 +88,7 @@
                         </select>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <label for="" style="font-size: 15px">status</label>
