@@ -106,7 +106,7 @@ blockquote q,
 .post-author-details .author-desc p,
 .total-overlay-sticky #navigation .sub-menu a,
 .total-overlay-sticky .menu.type2 > li > a {
-    font-family: "Josefin Sans", sans-serif;
+    /* font-family: "Josefin Sans", sans-serif; */
     font-weight: 100;
 }
 

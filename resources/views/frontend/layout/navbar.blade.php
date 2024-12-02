@@ -12,11 +12,12 @@
      }
 
      .navbar-nav .nav-link {
+         text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
          background: transparent !important;
          font-size: 1.6rem;
          /* Suitable font size for menu items */
          padding: 0.5rem 1rem;
-         color: white;
+         color: #311803;
          /* Adjust padding for better spacing */
      }
 
@@ -34,12 +35,12 @@
      }
 
      .navbar-light .navbar-toggler-icon {
-         background-image: ;
+
          width: 1.5rem;
          height: 1.5rem;
          background-size: cover;
          background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http://www.w3.org/2000/svg%22 viewBox%3D%220 0 30 30%22 fill%3D%22%23ffffff%22%3E%3Cpath stroke%3D%22rgba(255%2C 255%2C 255%2C 1)%22 stroke-linecap%3D%22round%22 stroke-miterlimit%3D%2210%22 stroke-width%3D%222%22 d%3D%22M4 7h22M4 15h22M4 23h22%22/%3E%3C/svg%3E');
-
+         text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
      }
 
      .dropdown-menu {
@@ -53,8 +54,8 @@
 
          <!-- Logo and Site Name -->
          <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-             <img alt="Logo" width="80" class="m-2" src="{{ asset('uploads/' . $logo->main_logo) }}" />
-             <h1 class="text-warning m-2">
+             <img alt="Logo" width="100" class="m-2" src="{{ asset('uploads/' . $logo->main_logo) }}" />
+             <h1 class=" m-2">
                  {{ $setting->site_name }}</h1>
          </a>
 

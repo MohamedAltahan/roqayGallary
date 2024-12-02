@@ -52,24 +52,23 @@
 
         <!-- Modernizr -->
         <script src="{{ asset('frontend/js/modernizr.js') }}"></script>
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Rakkas&display=swap"
+            rel="stylesheet">
         <style>
             body,
             html {
-                /* background-color: {{ $color->main_background }} !important; */
                 margin: 0;
-                /* Remove default margins */
                 padding: 0;
-                /* Remove default padding */
-                background-image: url("{{ asset('frontend/images/background.jpg') }}") !important;
-                /* Replace with your image URL */
+                background-image: url("frontend/images/background.jpg") !important;
                 background-size: cover;
-                /* Makes the image cover the entire page */
                 background-position: center;
-                /* Centers the image */
-                background-repeat: no-repeat;
-                /* Prevents the image from repeating */
 
+                font-family: "Rakkas", sans-serif !important;
+                font-weight: 400;
+                font-style: normal;
+                /* Changes the font color for all text */
             }
 
             /* .main_header {
@@ -91,9 +90,9 @@
 
             .text_color {
                 color: {{ $color->text }} !important;
-            }
+            }*/
 
-            .text_coloryellow {
+            /* .text_coloryellow {
                 color: "{{ $color->text }}" !important;
 
             } */
