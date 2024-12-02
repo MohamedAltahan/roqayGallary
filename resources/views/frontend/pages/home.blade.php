@@ -33,11 +33,12 @@
                             href="{{ route('design-details.index', $design->id) }}">{{ __('View Gallery') }}<i
                                 class="fa fa-angle-right"></i></a>
                     </div>
-                    <div class="entry-thumb">
+                    <div class="entry-thumb ">
                         <ul class="blog-slider">
                             @foreach ($design->images as $image)
                                 <li>
-                                    <img src="{{ asset('uploads/' . $image->name) }}" alt="" title="" />
+                                    <img class=" rounded" src="{{ asset('uploads/' . $image->name) }}" alt=""
+                                        title="" />
                                 </li>
                             @endforeach
                         </ul>

@@ -19,8 +19,8 @@
             <li class="{{ setActive(['admin.settings.*']) }}"><a href="{{ route('admin.settings.index') }}"
                     class="nav-link "><i class="fas fa-wrench"></i><span>General Settings</span></a></li>
 
-            {{-- <li class="{{ setActive(['admin.category.*']) }}"><a href="{{ route('admin.category.index') }}"
-                    class="nav-link "><i class="fas fa-cog"></i><span>Categories</span></a></li> --}}
+            <li class="{{ setActive(['admin.services.*']) }}"><a href="{{ route('admin.services.index') }}"
+                    class="nav-link "><i class="fas fa-cog"></i><span>Services</span></a></li>
 
             {{-- <li class="{{ setActive(['admin.sub-category.*']) }}"><a href="{{ route('admin.sub-category.index') }}"
                     class="nav-link "><i class="fas fa-cog"></i><span>SubCategories</span></a></li> --}}

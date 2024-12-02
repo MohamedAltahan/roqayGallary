@@ -10,7 +10,7 @@
         <div class="container">
 
             <div class="main-title " data-animation="pullDown" data-delay="1">
-                <h3> About {{ $setting->site_name }} </h3>
+                <h3> {{ __('About us') }} </h3>
             </div>
 
             <div class="dt-sc-service-content">

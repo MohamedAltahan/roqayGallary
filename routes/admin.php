@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DesignController;
 use App\Http\Controllers\Backend\EmailInboxController;
 use App\Http\Controllers\Backend\HomePageSettingController;
+use App\Http\Controllers\Backend\ServicesController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\ShowDesignController;
 use App\Http\Controllers\Backend\SocialController;
@@ -33,6 +34,10 @@ Route::group(
         //category
         Route::put('category/change-status', [CategoryController::class, 'changeStatus'])->name('category.change-status');
         Route::resource('category', CategoryController::class);
+
+        //services
+        Route::put('services/change-status', [ServicesController::class, 'changeStatus'])->name('service.change-status');
+        Route::resource('services', ServicesController::class);
 
         //sub category
         Route::put('sub-category/change-status', [SubCategoryController::class, 'changeStatus'])->name('sub-category.change-status');

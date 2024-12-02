@@ -298,12 +298,10 @@ jQuery(document).ready(function ($) {
             var $width = 18;
 
             $(window).smartresize(function () {
-                $container
-                    .css({ overflow: "hidden" })
-                    .isotope({
-                        itemSelector: ".portfolio",
-                        masonry: { gutter: $width },
-                    });
+                $container.css({ overflow: "hidden" }).isotope({
+                    itemSelector: ".portfolio",
+                    masonry: { gutter: $width },
+                });
             });
 
             $container.isotope({
@@ -342,12 +340,10 @@ jQuery(document).ready(function ($) {
             var $width = 12;
 
             $(window).smartresize(function () {
-                $framecontainer
-                    .css({ overflow: "hidden" })
-                    .isotope({
-                        itemSelector: ".frame",
-                        masonry: { gutter: $width },
-                    });
+                $framecontainer.css({ overflow: "hidden" }).isotope({
+                    itemSelector: ".frame",
+                    masonry: { gutter: $width },
+                });
             });
 
             $framecontainer.isotope({
@@ -522,12 +518,10 @@ jQuery(document).ready(function ($) {
             var $width = 24;
 
             $(window).smartresize(function () {
-                $containerproduct
-                    .css({ overflow: "hidden" })
-                    .isotope({
-                        itemSelector: ".product-wrapper",
-                        masonry: { gutter: $width },
-                    });
+                $containerproduct.css({ overflow: "hidden" }).isotope({
+                    itemSelector: ".product-wrapper",
+                    masonry: { gutter: $width },
+                });
             });
 
             $containerproduct.isotope({
@@ -1172,12 +1166,10 @@ jQuery(document).ready(function ($) {
                                 text = t.find(".text").text();
 
                             rad += 24;
-                            var z = r
-                                .path()
-                                .attr({
-                                    arc: [value, color, rad],
-                                    "stroke-width": 12,
-                                });
+                            var z = r.path().attr({
+                                arc: [value, color, rad],
+                                "stroke-width": 12,
+                            });
 
                             z.mouseover(function () {
                                 this.animate(

@@ -4,6 +4,8 @@ use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\DesignDetailsController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ServicesController;
+use App\Http\Controllers\Frontend\SetLocaleController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +24,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('about', 'about')->name('about');
 });
+
+Route::controller(ServicesController::class)->group(function () {
+    Route::get('services', 'index')->name('services');
+});
+
 Route::controller(ContactController::class)->group(function () {
     Route::get('contact', 'index')->name('contact.index');
     Route::post('contact', 'store')->name('contact.store');
@@ -35,16 +42,7 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('category/{id}', 'show')->name('category.show');
 });
 
-Route::get('set-locale', function () {
-    $locale = 'en';
-    session(['locale' => $locale]);
-
-    $value = session('locale');
-
-    dd($value);
-    App::setLocale($locale);
-    return redirect()->back();
-});
+Route::get('set-locale/{locale}', SetLocaleController::class)->name('set-locale');
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/adminAuth.php';

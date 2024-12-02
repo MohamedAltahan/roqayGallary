@@ -56,11 +56,23 @@
         <style>
             body,
             html {
-                background-color: {{ $color->main_background }} !important;
+                /* background-color: {{ $color->main_background }} !important; */
+                margin: 0;
+                /* Remove default margins */
+                padding: 0;
+                /* Remove default padding */
+                background-image: url("{{ asset('frontend/images/background.jpg') }}") !important;
+                /* Replace with your image URL */
+                background-size: cover;
+                /* Makes the image cover the entire page */
+                background-position: center;
+                /* Centers the image */
+                background-repeat: no-repeat;
+                /* Prevents the image from repeating */
 
             }
 
-            .main_header {
+            /* .main_header {
                 background-color: {{ $color->main_banner }} !important;
             }
 
@@ -84,7 +96,7 @@
             .text_coloryellow {
                 color: "{{ $color->text }}" !important;
 
-            }
+            } */
         </style>
 
 
@@ -99,7 +111,7 @@
         <!-- **Wrapper** -->
         <div class="wrapper">
             <div class="inner-wrapper" style="position: relative">
-                <div id="header-wrapper" class="" style="position: absolute">
+                <div id="header-wrapper" class="" style="position: absolute; ">
                     <!-- **header-wrapper Starts** -->
                     @include('frontend.layout.navbar')
                 </div>
@@ -110,6 +122,7 @@
                     <section id="primary" class="content-full-width">
 
                         @yield('content')
+
                         {{-- @include('frontend.layout.about-me') --}}
                         @include('frontend.layout.footer')
                         <div class="dt-sc-hr-invisible-small"></div>

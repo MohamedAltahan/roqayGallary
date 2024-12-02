@@ -49,7 +49,7 @@
  </style>
 
  <nav class="navbar navbar-expand-lg navbar-light">
-     <div class="container menu-container ">
+     <div class="container menu-container " style="border-bottom: 1px solid rgba(255, 255, 255, 0.2);">
 
          <!-- Logo and Site Name -->
          <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
@@ -57,7 +57,6 @@
              <h1 class="text-warning m-2">
                  {{ $setting->site_name }}</h1>
          </a>
-
 
          <!-- Toggler for mobile -->
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -67,6 +66,15 @@
          <!-- Menu items -->
          <div class="collapse navbar-collapse" id="navbarNav">
              <ul class="navbar-nav">
+
+                 <li class="nav-item">
+                     @if (App::getLocale() == 'en')
+                         <a class="nav-link" href="{{ route('set-locale', 'ar') }}">{{ __('العربية') }}</a>
+                     @elseif (App::getLocale() == 'ar')
+                         <a class="nav-link" href="{{ route('set-locale', 'en') }}">{{ __('English') }}</a>
+                     @endif
+                 </li>
+
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                  </li>
@@ -74,7 +82,7 @@
                      <a class="nav-link" href="{{ route('about') }}">{{ __('About') }}</a>
                  </li>
                  <li class="nav-item">
-                     <a class="nav-link" href="#">{{ __('Services') }}</a>
+                     <a class="nav-link" href="{{ route('services') }}">{{ __('Services') }}</a>
                  </li>
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('contact.index') }}">{{ __('Contact') }}</a>

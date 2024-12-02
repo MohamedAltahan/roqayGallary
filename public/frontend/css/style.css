@@ -3125,6 +3125,7 @@ ul.sub-menu li.current_page_item a::after {
     float: left;
 }
 .bx-wrapper ul li {
+    height: 500px !important;
     margin: 0;
     padding: 0;
     position: relative;
@@ -3255,8 +3256,9 @@ ul.sub-menu li.current_page_item a::after {
     line-height: 0;
 }
 .blog-section .blog-entry .entry-thumb img {
+    height: 100%;
+    object-fit: fill;
     width: 100%;
-    height: auto;
 }
 
 .blog-section .blog-entry .entry-details {
@@ -3865,7 +3867,7 @@ form#commentform,
 /*----*****---- << Blog Slider >> ----*****----*/
 
 .blog-entry .bx-wrapper img {
-    width: auto;
+    /* width: auto; */
 }
 .blog-entry .bx-controls {
     margin: auto;
