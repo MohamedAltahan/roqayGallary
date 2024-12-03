@@ -21,15 +21,22 @@
          /* Adjust padding for better spacing */
      }
 
+     .navbar-collapse.show {
+         background: rgba(255, 255, 255, 0.63) !important;
+         /* White background when toggler is clicked */
+     }
+
      .navbar-toggler {
          background: transparent !important;
-         color: white;
+         color: rgb(255, 255, 255);
          border: none;
          /* Remove border from the toggler button */
      }
 
      .navbar-collapse {
-         background: transparent !important;
+         transition: background 0.0s ease;
+         /* Smooth transition */
+         /* background: transparent !important; */
          justify-content: flex-end;
          /* Align menu items to the right */
      }
