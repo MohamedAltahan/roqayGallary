@@ -22,7 +22,7 @@
      }
 
      .navbar-collapse.show {
-         background: rgba(255, 255, 255, 0.63) !important;
+         background: rgba(255, 255, 255, 0.747) !important;
          /* White background when toggler is clicked */
      }
 

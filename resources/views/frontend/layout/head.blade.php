@@ -51,6 +51,21 @@
               opacity: 1;
           }
       }
+
+      .slider {
+          background-size: cover;
+          /* Ensures the image covers the entire element */
+          background-position: center;
+          /* Centers the image */
+          background-repeat: no-repeat;
+          /* Prevents the image from repeating */
+          width: 100%;
+          /* Ensures it spans the full width */
+          /* height: auto; */
+          /* Adjust height proportionally */
+          min-height: 400px;
+          /* Optional: set a minimum height */
+      }
   </style>
 
 
@@ -58,11 +73,9 @@
       <div class="slider fullwidth-section parallax"
           style=" background-image:
          url({{ asset('uploads/' . @$homePageHeader['main_image']) }});">
-
           <div class="main-banner">
               <div class="banner-content">
                   <h1 class="display-2 fw-bold">
-
                       <span class="typing">{{ $homePageHeader['main_title'][App::getLocale()] }}</span>
                   </h1>
                   <h4 class="lead description" style="font-size: 30px">
