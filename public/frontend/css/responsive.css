@@ -2450,7 +2450,7 @@
     }
 
     #header-wrapper {
-        position: inherit !important;
+        /* position: inherit !important; */
     }
     .dt-sc-callout-box h4,
     .dt-sc-callout-box.with-icon h4 {
