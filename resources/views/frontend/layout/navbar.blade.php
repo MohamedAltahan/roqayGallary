@@ -54,7 +54,7 @@
 
          <!-- Logo and Site Name -->
          <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-             <img alt="Logo" width="60" class="m-2" src="{{ asset('uploads/' . $logo->main_logo) }}" />
+             <img alt="Logo" width="50" class="m-2" src="{{ asset('uploads/' . $logo->main_logo) }}" />
              <h1 class=" m-2">
                  {{ $setting->site_name }}</h1>
          </a>
