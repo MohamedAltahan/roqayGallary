@@ -1,6 +1,6 @@
  <style>
      .navbar {
-         padding: 1rem .25rem;
+         padding: 1rem .1rem;
          background: transparent !important;
          /* Adjust padding for aesthetic spacing */
      }
@@ -43,8 +43,8 @@
 
      .navbar-light .navbar-toggler-icon {
          border-radius: 5px;
-         width: 2.5rem;
-         height: 2.5rem;
+         width: 2.0rem;
+         height: 2.0rem;
          background-size: cover;
          background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http://www.w3.org/2000/svg%22 viewBox%3D%220 0 30 30%22 fill%3D%22%23ffffff%22%3E%3Cpath stroke%3D%22rgba(255%2C 255%2C 255%2C 1)%22 stroke-linecap%3D%22round%22 stroke-miterlimit%3D%2210%22 stroke-width%3D%222%22 d%3D%22M4 7h22M4 15h22M4 23h22%22/%3E%3C/svg%3E');
          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.185);
