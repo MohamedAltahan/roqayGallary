@@ -61,7 +61,7 @@
             html {
                 margin: 0;
                 padding: 0;
-                background-image: url("frontend/images/background.jpg") !important;
+                background-image: url("{{ asset('frontend/images/background.jpg') }}") !important;
                 background-size: cover;
                 background-position: center;
 
@@ -83,30 +83,24 @@
                 background-color: {{ $color->secondary_background }} !important;
             }
 
-            .btn_color {
-                background-color: {{ $color->btn }} !important;
-
-            }
 
             .text_color {
                 color: {{ $color->text }} !important;
-            }*/
-
-            /* .text_coloryellow {
+                }*/
+            /*
+            .text_coloryellow {
                 color: "{{ $color->text }}" !important;
-
             } */
+
+            .btn_color {
+                background-color: {{ $color->btn }} !important;
+            }
         </style>
 
 
     </head>
 
     <body>
-        <!-- <div class="loader-wrapper">
-        <div id="large-header" class="large-header">
-            <h1 class="loader-title"><span>Red</span> Art</h1>
-        </div>
-    </div> -->
         <!-- **Wrapper** -->
         <div class="wrapper">
             <div class="inner-wrapper" style="position: relative">

@@ -293,7 +293,6 @@ body,
 .menu.type1,
 .portfolio figcaption,
 .portfolio figcaption::before,
-.bx-controls a,
 #contact_map::after,
 tr.alternate td,
 .alternate td,
@@ -302,6 +301,10 @@ p:hover .dt-sc-dropcap-bordered,
 .boxed #main,
 .boxed .inner-wrapper {
     background: #000000;
+}
+
+.bx-controls a {
+    background: rgba(156, 105, 71, 0.767);
 }
 
 .type1.dt-sc-button::before,
@@ -393,10 +396,10 @@ ul.dt-sc-tabs-vertical-frame > li > a,
 }
 
 .blog-items .blog-entry::before {
-    background: #202020;
+    background: #927777;
 }
 .blog-items .blog-entry {
-    background: #2a2a2a;
+    background: #c7b8af;
 }
 
 .header.nav-is-visible,

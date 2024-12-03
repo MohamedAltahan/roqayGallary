@@ -1,6 +1,6 @@
  <style>
      .navbar {
-         padding: 0.0rem 1rem;
+         padding: 3rem 1rem;
          background: transparent !important;
          /* Adjust padding for aesthetic spacing */
      }

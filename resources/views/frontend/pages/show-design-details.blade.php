@@ -3,9 +3,7 @@
     {{ $design->name[App::getLocale()] }}
 @endsection
 @section('content')
-    <div class="breadcrumb"><!-- *BreadCrumb Starts here** -->
-
-    </div><!-- *BreadCrumb Ends here** -->
+    <div class="breadcrumb"></div>
     <section id="primary" class="content-full-width" style="min-height: 50vh "> <!-- **Primary Starts Here** -->
         <div class="container">
 
@@ -18,7 +16,6 @@
                     {!! @$design->long_description[App::getLocale()] !!}
                 </h4>
             </div>
-
 
             <div class=" py-5 text-center">
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
@@ -33,14 +30,4 @@
             </div>
         </div>
     </section><!-- **Primary Ends Here** -->
-
-
-
-
-
-
-
-    <!-- Service Start -->
-
-    <!-- Service End -->
 @endsection
