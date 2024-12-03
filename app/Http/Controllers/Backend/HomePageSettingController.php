@@ -15,7 +15,7 @@ class HomePageSettingController extends Controller
 
     public function update(Request $request)
     {
-        $data =  $request->validate([
+        $data = $request->validate([
             'main_image' => ['image'],
             'main_title' => ['array', 'max:4000'],
             'main_description' => ['array', 'max:4000'],

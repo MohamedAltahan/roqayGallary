@@ -8,8 +8,6 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class ServicesDataTable extends DataTable
@@ -17,42 +15,43 @@ class ServicesDataTable extends DataTable
     /**
      * Build the DataTable class.
      *
-     * @param QueryBuilder $query Results from query() method.
+     * @param  QueryBuilder  $query  Results from query() method.
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
-                $editBtn = "<a href='" . route('admin.services.edit', $query->id) . "'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Edit</a>";
-                $deleteBtn = "<a href='" . route('admin.services.destroy', $query->id) . "'class='btn btn-sm ml-1 my-1 btn-danger delete-item'><i class='fas fa-trash'></i>Delete</a>";
+                $editBtn = "<a href='".route('admin.services.edit', $query->id)."'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Edit</a>";
+                $deleteBtn = "<a href='".route('admin.services.destroy', $query->id)."'class='btn btn-sm ml-1 my-1 btn-danger delete-item'><i class='fas fa-trash'></i>Delete</a>";
 
-                return $editBtn . $deleteBtn;
+                return $editBtn.$deleteBtn;
             })
 
             ->addColumn('ServiceName', function ($query) {
-                return $query->name['en'] . ' - ' . $query->name['ar'];
+                return $query->name['en'].' - '.$query->name['ar'];
             })
             ->addColumn('image', function ($query) {
 
                 if ($query->image == null) {
                     return 'no image';
                 }
-                return "<img width='100px' src='" . asset('uploads/' . $query->image) . "'></img>";
+
+                return "<img width='100px' src='".asset('uploads/'.$query->image)."'></img>";
             })
 
             ->addColumn('description', function ($query) {
-                return $query->description['en'] . ' - ' . $query->description['ar'];
+                return $query->description['en'].' - '.$query->description['ar'];
             })
 
             ->addColumn('status', function ($query) {
                 if ($query->status == true) {
                     $button = '<label class="custom-switch mt-2">
-                        <input checked type="checkbox" name="custom-switch-checkbox" data-id="' . $query->id . '" class="change-status custom-switch-input">
+                        <input checked type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="change-status custom-switch-input">
                         <span class="custom-switch-indicator"></span>
                       </label>';
                 } else {
                     $button = '<label class="custom-switch mt-2">
-                        <input type="checkbox" name="custom-switch-checkbox" data-id="' . $query->id . '" class="change-status custom-switch-input ">
+                        <input type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="change-status custom-switch-input ">
                         <span class="custom-switch-indicator"></span>
                       </label>';
                 }
@@ -89,7 +88,7 @@ class ServicesDataTable extends DataTable
                 Button::make('pdf'),
                 Button::make('print'),
                 Button::make('reset'),
-                Button::make('reload')
+                Button::make('reload'),
             ]);
     }
 
@@ -117,6 +116,6 @@ class ServicesDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Services_' . date('YmdHis');
+        return 'Services_'.date('YmdHis');
     }
 }

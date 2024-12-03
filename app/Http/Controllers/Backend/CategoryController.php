@@ -6,7 +6,6 @@ use App\DataTables\CategoryDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Design;
-use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -101,7 +100,6 @@ class CategoryController extends Controller
         if (isset($design)) {
             return response(['status' => 'error', 'message' => 'Can not delete this category, it contains items inside.']);
         }
-
 
         $category->delete();
         toastr('Deleted Successfully');

@@ -24,7 +24,7 @@ class ServicesController extends Controller
 
     public function store(Request $request)
     {
-        $data =  $request->validate([
+        $data = $request->validate([
             'name.*' => 'required',
             'description.*' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -45,6 +45,7 @@ class ServicesController extends Controller
     public function edit($id)
     {
         $service = Service::findOrFail($id);
+
         return view('admin.services.edit', compact('service'));
     }
 
@@ -68,6 +69,7 @@ class ServicesController extends Controller
         }
         $service->save();
         toastr('Updated successfully');
+
         return redirect()->route('admin.services.index');
     }
 
@@ -77,6 +79,7 @@ class ServicesController extends Controller
         $this->deleteFile('myDisk', $service->image);
         $service->delete();
         toastr('Deleted successfully');
+
         return response(['status' => 'success', 'message' => 'Deleted successfully']);
     }
 

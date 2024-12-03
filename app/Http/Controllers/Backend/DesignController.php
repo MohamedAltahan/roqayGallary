@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Design;
 use App\Models\Image;
-use App\Models\SubCategory;
-use App\Models\Video;
 use App\Traits\fileUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -23,6 +21,7 @@ class DesignController extends Controller
     {
         $this->deleteUselessImages();
         $imagesGroupKey = Str::random(10);
+
         return view('admin.design.create', compact('imagesGroupKey'));
     }
 
@@ -32,7 +31,7 @@ class DesignController extends Controller
     public function store(Request $request)
     {
 
-        $data =   $request->validate([
+        $data = $request->validate([
             'name.*' => ['required'],
             'description.*' => ['required', 'max:1000'],
             'long_description.*' => ['nullable', 'max:5000'],
@@ -114,19 +113,22 @@ class DesignController extends Controller
     {
         if ($request->hasFile('file')) {
             $imagePath = $this->fileUplaod($request, 'myDisk', 'designGallery', 'file');
-            $image = new Image();
+            $image = new Image;
             $image['name'] = $imagePath;
             $image['images_group_key'] = $id;
             $image->save();
+
             return response($image->id);
         } else {
             return response(['e' => 'e']);
         }
     }
+
     //get Product Images using ajax
     public function getImage(Request $request)
     {
         $images = Image::where('images_group_key', $request->images_group_key)->get();
+
         return view('admin.design.images', compact('images'));
     }
 
@@ -137,6 +139,7 @@ class DesignController extends Controller
         $image->delete();
         $this->deleteFile('myDisk', $image->name);
         $images = Image::where('images_group_key', $request->images_group_key)->get();
+
         return view('admin.design.images', compact('images'));
     }
 

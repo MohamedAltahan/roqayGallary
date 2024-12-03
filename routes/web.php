@@ -6,7 +6,6 @@ use App\Http\Controllers\Frontend\DesignDetailsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ServicesController;
 use App\Http\Controllers\Frontend\SetLocaleController;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,5 +43,5 @@ Route::controller(CategoryController::class)->group(function () {
 
 Route::get('set-locale/{locale}', SetLocaleController::class)->name('set-locale');
 
-require __DIR__ . '/admin.php';
-require __DIR__ . '/adminAuth.php';
+require __DIR__.'/admin.php';
+require __DIR__.'/adminAuth.php';

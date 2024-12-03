@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
-use App\Models\Category;
 use App\Models\Design;
 use App\Models\HomePageSetting;
 use App\Models\Setting;
-use App\Models\Social;
 
 class HomeController extends Controller
 {
@@ -24,6 +22,7 @@ class HomeController extends Controller
     {
         $about = About::first();
         $setting = Setting::first();
+
         return view('frontend.pages.about', compact('about', 'setting'));
     }
 }

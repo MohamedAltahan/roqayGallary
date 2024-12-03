@@ -15,8 +15,9 @@ class Design extends Model
         'description' => 'array',
         'long_description' => 'array',
         'name' => 'array',
-        'title' => 'array'
+        'title' => 'array',
     ];
+
     // relations
     public function images()
     {

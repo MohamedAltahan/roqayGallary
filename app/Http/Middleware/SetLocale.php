@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
 use Illuminate\Support\Facades\App;
 
 class SetLocale
