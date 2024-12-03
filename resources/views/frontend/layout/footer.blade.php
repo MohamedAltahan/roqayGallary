@@ -40,10 +40,10 @@
                         {{ __('Company') }}
                     </h6>
                     <p>
-                        <a href="#" class="text-reset">{{ __('Contact us') }}</a>
+                        <a href="{{ route('contact.index') }}" class="text-reset">{{ __('Contact us') }}</a>
                     </p>
                     <p>
-                        <a href="#" class="text-reset">{{ __('About us') }}</a>
+                        <a href="{{ route('about') }}" class="text-reset">{{ __('About us') }}</a>
 
                     </p>
 
