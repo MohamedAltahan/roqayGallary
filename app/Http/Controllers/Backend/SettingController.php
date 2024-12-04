@@ -37,8 +37,8 @@ class SettingController extends Controller
         $request->validate([
             'site_name' => ['required', 'max:200'],
             'contact_email' => ['required', 'max:200'],
-            'contact_phone' => ['max:50'],
-            'contact_address.*' => ['max:2000'],
+            'contact_phone' => ['max:100'],
+            'contact_address.*' => ['max:4000'],
             'site_description.*' => ['max:2000'],
         ]);
 
