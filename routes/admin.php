@@ -70,6 +70,7 @@ Route::group(
         //email inbox
         Route::get('email-inbox', [EmailInboxController::class, 'index'])->name('get-emails.index');
         Route::get('email-inbox/show/{id}', [EmailInboxController::class, 'show'])->name('get-emails.show');
+        Route::delete('email-inbox/{id}', [EmailInboxController::class, 'destroy'])->name('get-emails.destroy');
 
         //footer social buttons
         Route::put('socials/change-status', [SocialController::class, 'changeStatus'])->name('socials.change-status');

@@ -19,4 +19,11 @@ class EmailInboxController extends Controller
 
         return view('admin.email-inbox.show', compact('message'));
     }
+
+    public function destroy($id)
+    {
+        $message = EmailInbox::findOrFail($id);
+        $message->delete();
+        return response(['status' => 'success', 'message' => 'Deleted successfully']);
+    }
 }

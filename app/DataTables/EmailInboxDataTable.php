@@ -30,9 +30,10 @@ class EmailInboxDataTable extends DataTable
                 return $query->created_at;
             })
             ->addColumn('action', function ($query) {
-                $openBtn = "<a href='".route('admin.get-emails.show', $query->id)."'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Open</a>";
+                $openBtn = "<a href='" . route('admin.get-emails.show', $query->id) . "'class='btn btn-sm btn-primary'><i class='far fa-edit'></i>Open</a>";
+                $deleteBtn = "<a href='" . route('admin.get-emails.destroy', $query->id) . "'class='btn btn-sm ml-1 my-1 btn-danger delete-item'><i class='fas fa-trash'></i>Delete</a>";
 
-                return $openBtn;
+                return $openBtn . $deleteBtn;
             })
             ->rawColumns(['action'])
             ->setRowId('id');
@@ -91,6 +92,6 @@ class EmailInboxDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'EmailInbox_'.date('YmdHis');
+        return 'EmailInbox_' . date('YmdHis');
     }
 }
