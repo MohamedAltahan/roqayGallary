@@ -66,6 +66,58 @@
           min-height: 400px;
           /* Optional: set a minimum height */
       }
+
+
+      /* General styling for all devices */
+      .banner-content h2 {
+          font-size: 3rem;
+          /* Default size */
+          line-height: 1.2;
+          /* Adjust line height for readability */
+      }
+
+      .banner-content h4 {
+          font-size: 1.5rem;
+          /* Default size */
+          line-height: 1.5;
+          /* Adjust line height for readability */
+      }
+
+      /* Media queries for responsive design */
+
+      /* Small screens (up to 768px wide) */
+      @media (max-width: 768px) {
+          .banner-content h2 {
+              font-size: 2rem;
+              /* Smaller font size for h2 on smaller screens */
+              line-height: 1.1;
+              /* Adjust line height */
+          }
+
+          .banner-content h4 {
+              font-size: 1.2rem;
+              /* Smaller font size for h4 on smaller screens */
+              line-height: 1.3;
+              /* Adjust line height */
+          }
+      }
+
+      /* Extra small screens (up to 480px wide) */
+      @media (max-width: 480px) {
+          .banner-content h2 {
+              font-size: 1.5rem;
+              /* Even smaller for extra small screens */
+              line-height: 1.1;
+              /* Keep readable spacing */
+          }
+
+          .banner-content h4 {
+              font-size: 1rem;
+              /* Reduce size for h4 */
+              line-height: 1.2;
+              /* Adjust line height */
+          }
+      }
   </style>
 
 
@@ -75,14 +127,13 @@
          url({{ asset('uploads/' . @$homePageHeader['main_image']) }});">
           <div class="main-banner">
               <div class="banner-content">
-                  <h1 class="display-2 fw-bold">
+                  <h2 class="display-2 fw-bold">
                       <span class="typing">{{ $homePageHeader['main_title'][App::getLocale()] }}</span>
-                  </h1>
+                  </h2>
                   <h4 class="lead description" style="font-size: 30px">
                       {{ $homePageHeader['main_description'][App::getLocale()] }}</h4>
               </div>
           </div>
-
 
       </div>
   </div>
