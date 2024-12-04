@@ -54,9 +54,17 @@
         <script src="{{ asset('frontend/js/modernizr.js') }}"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Rakkas&display=swap"
-            rel="stylesheet">
+        {{-- <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Rakkas&display=swap"
+            rel="stylesheet"> --}}
+
         <style>
+            @font-face {
+                font-family: 'UKIJChiK';
+                /* Your font name */
+                src: url({{ asset('frontend/fonts/UKIJChiK.ttf') }});
+
+            }
+
             body,
             html {
                 margin: 0;
@@ -65,9 +73,10 @@
                 background-size: cover;
                 background-position: center;
 
-                font-family: "Rakkas", sans-serif !important;
+                font-family: "UKIJChiK" !important;
                 font-weight: 400;
-                font-style: normal;
+                font-style: bold;
+                font-size: 110%;
                 /* Changes the font color for all text */
             }
 
