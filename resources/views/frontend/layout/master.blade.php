@@ -94,6 +94,7 @@
 
             .btn_color {
                 background-color: {{ $color->btn }} !important;
+                border-radius: 3px !important;
             }
         </style>
 

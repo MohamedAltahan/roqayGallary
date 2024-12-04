@@ -93,7 +93,8 @@
 
                             <div class="col-md-6">
                                 <p class="submit">
-                                    <input type="submit" value="{{ __('Send') }}" name="submit" class="button" />
+                                    <input type="submit" value="{{ __('Send') }}" name="submit"
+                                        class="type1 dt-sc-button small btn_color" />
                                 </p>
                             </div>
                         </div>
