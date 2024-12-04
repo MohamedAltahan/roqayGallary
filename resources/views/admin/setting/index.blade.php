@@ -16,8 +16,8 @@
                         href="#list-about" role="tab">About Page</a>
                     <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
                         href="#list-messages" role="tab">Logo and icon</a>
-                    <a class="list-group-item list-group-item-action" id="list-website-color-list" data-toggle="list"
-                        href="#list-website-color" role="tab">Website color</a>
+                    {{-- <a class="list-group-item list-group-item-action" id="list-website-color-list" data-toggle="list"
+                        href="#list-website-color" role="tab">Website color</a> --}}
                 </div>
             </div>
             <div class=" col-sm-12 col-md-9">
@@ -27,7 +27,7 @@
                     {{-- @include('admin.setting.home-showreels-setting') --}}
                     @include('admin.setting.about-setting')
                     @include('admin.setting.logo-setting')
-                    @include('admin.setting.website-color-setting')
+                    {{-- @include('admin.setting.website-color-setting') --}}
                 </div>
             </div>
         </div>

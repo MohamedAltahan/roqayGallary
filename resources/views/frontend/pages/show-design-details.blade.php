@@ -20,12 +20,11 @@
             <div class=" py-5 text-center">
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
                     {{-- <p class="section-title text-secondary justify-content-center">{{ $design->name[App::getLocale()] }}</p> --}}
-
                     @foreach ($design->images as $image)
                         <img class="col-12 rounded" src="{{ asset('uploads/' . @$image->name) }}">
                     @endforeach
                     <a href="{{ route('contact.index') }}"
-                        class="btn btn_color text-black mt-5 text-dark ">{{ __('Send us a message') }}</a>
+                        class="type1 dt-sc-button small btn_color">{{ __('Send us a message') }}</a>
                 </div>
             </div>
         </div>

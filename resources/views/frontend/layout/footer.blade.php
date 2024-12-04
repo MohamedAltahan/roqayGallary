@@ -4,7 +4,7 @@
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
+            <span>{{ __('Get connected with us on social networks:') }}</span>
         </div>
         <!-- Left -->
         <!-- Right -->
@@ -29,7 +29,7 @@
                     <h6 class="text-uppercase fw-bold mb-4" style="color: #000000">
                         <i class="fas fa-gem me-3"></i>{{ @$setting->site_name }}
                     </h6>
-                    <p>{{ @$setting->site_description }}</p>
+                    <p>{{ @$setting->site_description[App::getLocale()] }}</p>
                 </div>
                 <!-- Grid column -->
 
@@ -55,7 +55,7 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4" style="color: #000000">{{ __('Contact') }}</h6>
-                    <p><i class="fas fa-home me-3"></i> {{ @$setting->contact_address }}</p>
+                    <p><i class="fas fa-home me-3"></i> {{ @$setting->contact_address[App::getLocale()] }}</p>
                     <p> <i class="fas fa-envelope me-3"></i> {{ @$setting->contact_email }} </p>
                     <p><i class="fas fa-phone me-3"></i>{{ @$setting->contact_phone }}</p>
                 </div>

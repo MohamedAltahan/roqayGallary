@@ -56,25 +56,32 @@
                         @csrf
                         <div class="column dt-sc-one-third first">
                             <p class="input-text">
-                                <x-form.input name="name" required label="Name" class="form-control" />
+                                <x-form.input name="name" label="Name" class="form-control" />
                             </p>
                         </div>
 
                         <div class="column dt-sc-one-third">
                             <p class="input-text">
-                                <x-form.input name="email" label="Email" class="form-control" />
+                                <x-form.input type="email" name="email" label="Email" class="form-control" />
                             </p>
                         </div>
+
                         <div class="column dt-sc-one-third">
                             <p class="input-text">
-                                <x-form.input name="phone" required label="Phone" class="form-control" />
+                                <x-form.input name="phone" label="Phone" class="form-control" />
                             </p>
                         </div>
-                        <p class="input-text">
-                            <textarea class=" form-control" required="" rows="3" cols="5" name="message"
-                                title="{{ __('Enter your Message') }}" placeholder="{{ __('Your message') }}"></textarea>
-                        </p>
+                        <div>
 
+                            <p class="input-text">
+                                <label for="message">{{ __('Message') }}</label>
+                                <textarea class=" form-control" rows="3" cols="5" name="message" style="color: gray;"
+                                    title="{{ __('Enter your Message') }}" placeholder="{{ __('Your message') }}"></textarea>
+                                @error('message')
+                                <div class="text-danger ">{{ $message }}</div>
+                            @enderror
+                            </p>
+                        </div>
 
                         <div class="row">
                             <div class="mb-3 form-check col-md-6 ">
@@ -86,7 +93,7 @@
 
                             <div class="col-md-6">
                                 <p class="submit">
-                                    <input type="submit" value="Send" name="submit" class="button" />
+                                    <input type="submit" value="{{ __('Send') }}" name="submit" class="button" />
                                 </p>
                             </div>
                         </div>

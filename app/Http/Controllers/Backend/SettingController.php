@@ -38,7 +38,8 @@ class SettingController extends Controller
             'site_name' => ['required', 'max:200'],
             'contact_email' => ['required', 'max:200'],
             'contact_phone' => ['max:50'],
-            'contact_address' => ['max:250'],
+            'contact_address.*' => ['max:500'],
+            'site_description.*' => ['max:500'],
         ]);
 
         Setting::updateOrCreate(['id' => 1], $request->all());

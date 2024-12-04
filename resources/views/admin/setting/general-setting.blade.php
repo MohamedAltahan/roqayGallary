@@ -20,11 +20,24 @@
                 </div>
 
                 <div class="form-group">
-                    <x-form.input class="form-control" name="contact_address" label='Contact address'
-                        value="{{ @$setting->contact_address }}" />
+                    <x-form.input class="form-control" name="contact_address[ar]" label='Contact address(Arabic)'
+                        value="{{ @$setting['contact_address']['ar'] }}" />
+                </div>
+                <div class="form-group">
+                    <x-form.input class="form-control" name="contact_address[en]" label='Contact address (English)'
+                        value="{{ @$setting['contact_address']['en'] }}" />
                 </div>
 
-                <button type="submit" class="btn btn-primary">Update</button>
+                <div class="form-group">
+                    <x-form.input class="form-control" name="site_description[ar]" label='Footer description(Arabic)'
+                        value="{{ @$setting['site_description']['ar'] }}" />
+                </div>
+                <div class="form-group">
+                    <x-form.input class="form-control" name="site_description[en]" label='Footer description(English)'
+                        value="{{ @$setting['site_description']['en'] }}" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
             </form>
         </div>
     </div>
