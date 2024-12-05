@@ -21,6 +21,7 @@
         <meta name="author" content="" />
 
 
+        <link rel="stylesheet" href="{{ asset('backend/assets/modules/fontawesome/css/all.min.css') }}">
 
         <link rel="shortcut icon" href="{{ asset('uploads/' . $logo->icon) }}" type="image/x-icon" />
 
@@ -34,6 +35,7 @@
         <!-- **Additional - stylesheets** -->
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet">
 
         <link href="{{ asset('frontend/css/animations.css') }}" rel="stylesheet" type="text/css" media="all" />
         <link id="shortcodes-css" href="{{ asset('frontend/css/shortcodes.css') }}" rel="stylesheet" type="text/css"
