@@ -54,3 +54,13 @@
 
     <div class="clear"></div>
 @endsection
+@push('styles')
+    <style>
+        @media screen and (max-width: 768px) {
+            .bx-wrapper ul li {
+                height: 200px !important;
+                /* Height for mobile screens */
+            }
+        }
+    </style>
+@endpush

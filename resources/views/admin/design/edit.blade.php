@@ -39,21 +39,21 @@
             @csrf
             @method('PUT')
 
-            <x-form.input name='images_group_key' type='hidden' value='{{ $design->images_group_key }}' />
+            <x-form.input name='images_group_key' type='hidden' value='{{ @$design->images_group_key }}' />
 
             <div class="form-group">
                 <x-form.input name="name[en]" label="Design name(English)" class="form-control"
-                    value="{{ $design['name']['en'] }}" />
+                    value="{{ @$design['name']['en'] }}" />
             </div>
 
             <div class="form-group">
                 <x-form.input name="name[ar]" label="Design name(Arabic)" class="form-control"
-                    value="{{ $design['name']['ar'] }}" />
+                    value="{{ @$design['name']['ar'] }}" />
             </div>
 
             <div class="form-group">
                 <x-form.input name="description[en]" label="Design description(English)" class="form-control"
-                    value="{{ $design['description']['en'] }}" />
+                    value="{{ @$design['description']['en'] }}" />
             </div>
 
             <div class="form-group">
@@ -63,12 +63,12 @@
 
             <div class="form-group">
                 <label for="">Long description (English)</label>
-                <textarea class="form-control summernote" name="long_description[en]">{{ $design['long_description']['en'] }}</textarea>
+                <textarea class="form-control summernote" name="long_description[en]">{{ @$design['long_description']['en'] }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="">Long description (Arabic)</label>
-                <textarea class="form-control summernote" name="long_description[ar]">{{ $design['long_description']['ar'] }}</textarea>
+                <textarea class="form-control summernote" name="long_description[ar]">{{ @$design['long_description']['ar'] }}</textarea>
             </div>
 
             {{-- <div class="row">
