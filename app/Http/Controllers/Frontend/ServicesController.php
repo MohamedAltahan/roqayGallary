@@ -9,7 +9,7 @@ class ServicesController extends Controller
 {
     public function index()
     {
-        $services = Service::all();
+        $services = Service::where('status', 1)->get();
 
         return view('frontend.pages.services', compact('services'));
     }
