@@ -90,7 +90,7 @@
           .banner-content h2 {
               font-size: 3.7rem;
               /* Smaller font size for h2 on smaller screens */
-              line-height: 1;
+              line-height: 1.3;
               /* Adjust line height */
           }
 
