@@ -29,7 +29,7 @@
 
 
 
-        <p class="text-danger">All images must have the same dimensions(width, height) </p>
+        <p class="text-danger">it's preferable to upload images with the same dimensions(width, height)</p>
         <form class="dropzone mb-3" method="POST" id='myDropzone' enctype="multipart/form-data"
             action="{{ route('admin.design.upload.image', $design->images_group_key) }}">
             @csrf
