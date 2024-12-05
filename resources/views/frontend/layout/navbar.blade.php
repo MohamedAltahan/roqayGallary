@@ -22,8 +22,12 @@
      }
 
      .navbar-collapse.show {
-         background: rgba(255, 255, 255, 0.747) !important;
-         /* White background when toggler is clicked */
+         background: rgba(255, 255, 255, 0.226);
+         backdrop-filter: blur(10px);
+         border-radius: 10px;
+         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+         padding: 1rem;
+         transition: background 0.3s ease, backdrop-filter 0.3s ease;
      }
 
      .navbar-toggler {
