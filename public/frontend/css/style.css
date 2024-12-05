@@ -3133,6 +3133,12 @@ ul.sub-menu li.current_page_item a::after {
     display: block;
 }
 
+@media screen and (max-width: 768px) {
+    .bx-wrapper ul li {
+        height: 200px !important; /* Height for mobile screens */
+    }
+}
+
 .bx-wrapper ul li::before {
     border: 1px solid;
     bottom: 0;
