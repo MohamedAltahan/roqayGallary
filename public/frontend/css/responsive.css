@@ -2540,7 +2540,7 @@
     /*----*****---- << Breadcrumb >> ----*****----*/
 
     .breadcrumb {
-        padding: 10px 0 10px;
+        padding: 100px 0 10px;
         text-align: center;
     }
     .breadcrumb .user-summary .account-links a,
