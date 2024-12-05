@@ -38,7 +38,8 @@
         <link href="{{ asset('frontend/css/animations.css') }}" rel="stylesheet" type="text/css" media="all" />
         <link id="shortcodes-css" href="{{ asset('frontend/css/shortcodes.css') }}" rel="stylesheet" type="text/css"
             media="all" />
-        <link id="skin-css" href="{{ asset('frontend/skins/red/style.css') }}" rel="stylesheet" media="all" />
+        {{-- <link id="skin-css" href="{{ asset('frontend/skins/red/style.css') }}" rel="stylesheet" media="all" /> --}}
+        <link id="skin-css" href="{{ asset('frontend/skins/brown/style.css') }}" rel="stylesheet" media="all" />
         <link href="{{ asset('frontend/css/isotope.css') }}" rel="stylesheet" type="text/css" media="all" />
         <link href="{{ asset('frontend/css/prettyPhoto.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('frontend/css/pace.css') }}" rel="stylesheet" type="text/css" />
