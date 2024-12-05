@@ -20,7 +20,8 @@
                             </div>
                             <div class="entry-details">
                                 <div class="entry-title">
-                                    <h4> <a href="blog-detail.html">{{ $service->name[App::getLocale()] }}</a> </h4>
+                                    <h4> <a style="color: rgb(46, 25, 0)"
+                                            href="">{{ $service->name[App::getLocale()] }}</a> </h4>
                                 </div>
                                 <div class="entry-body">
                                     <p>{{ $service->description[App::getLocale()] }} </p>
