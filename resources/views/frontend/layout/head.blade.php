@@ -70,7 +70,7 @@
 
       /* General styling for all devices */
       .banner-content h2 {
-          font-size: 3rem;
+          font-size: 2rem;
           /* Default size */
           line-height: 1.2;
           /* Adjust line height for readability */
@@ -88,7 +88,7 @@
       /* Small screens (up to 768px wide) */
       @media (max-width: 768px) {
           .banner-content h2 {
-              font-size: 2rem;
+              font-size: 1.7rem;
               /* Smaller font size for h2 on smaller screens */
               line-height: 1.1;
               /* Adjust line height */
@@ -126,7 +126,7 @@
           style=" background-image:
          url({{ asset('uploads/' . @$homePageHeader['main_image']) }});">
           <div class="main-banner">
-              <div class="banner-content">
+              <div class="banner-content mb-5">
                   <h2 class="display-2 fw-bold">
                       <span class="typing">{{ $homePageHeader['main_title'][App::getLocale()] }}</span>
                   </h2>
