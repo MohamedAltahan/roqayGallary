@@ -121,14 +121,14 @@
       /* Extra small screens (up to 480px wide) */
       @media (max-width: 480px) {
           .banner-content h2 {
-              font-size: 1.7rem;
+              font-size: 1.8rem;
               /* Even smaller for extra small screens */
               line-height: 1.1;
               /* Keep readable spacing */
           }
 
           .banner-content h4 {
-              font-size: 1.2rem !important;
+              font-size: 1.4rem !important;
               /* Reduce size for h4 */
               line-height: 1.2;
               /* Adjust line height */
