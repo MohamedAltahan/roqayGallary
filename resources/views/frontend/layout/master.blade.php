@@ -77,7 +77,6 @@
                 font-family: "UKIJChiK" !important;
                 font-weight: 400;
                 font-style: bold !important;
-                font-size: 110%;
                 font-style: normal !important;
                 /* Changes the font color for all text */
             }
