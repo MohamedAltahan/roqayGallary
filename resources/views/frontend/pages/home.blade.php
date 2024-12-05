@@ -56,9 +56,9 @@
 @endsection
 @push('styles')
     <style>
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 400px) {
             .bx-wrapper ul li {
-                height: 200px !important;
+                height: 350px !important;
                 /* Height for mobile screens */
             }
         }
