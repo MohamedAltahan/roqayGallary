@@ -137,11 +137,11 @@
   </style>
 
 
-  <div class="slider-container">
+  <div class="slider-container ">
       <div class="slider fullwidth-section parallax"
           style=" background-image:
          url({{ asset('uploads/' . @$homePageHeader['main_image']) }});">
-          <div class="main-banner">
+          <div class="main-banner mb-5">
               <div class="banner-content mb-5">
                   <h2 class="display-2 fw-bold">
                       <span class="typing">{{ $homePageHeader['main_title'][App::getLocale()] }}</span>
