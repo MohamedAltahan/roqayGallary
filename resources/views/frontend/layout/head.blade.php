@@ -86,6 +86,22 @@
       /* Media queries for responsive design */
 
       /* Small screens (up to 768px wide) */
+      @media (min-width: 768px) {
+          .banner-content h2 {
+              font-size: 3.7rem;
+              /* Smaller font size for h2 on smaller screens */
+              line-height: 1;
+              /* Adjust line height */
+          }
+
+          .banner-content h4 {
+              font-size: 1.2rem;
+              /* Smaller font size for h4 on smaller screens */
+              line-height: 1.3;
+              /* Adjust line height */
+          }
+      }
+
       @media (max-width: 768px) {
           .banner-content h2 {
               font-size: 1.7rem;
