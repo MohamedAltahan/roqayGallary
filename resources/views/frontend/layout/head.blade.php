@@ -62,20 +62,142 @@
           width: 100%;
       }
 
-      .banner-content h1 {
-          font-size: 7vw;
-          /* Responsive font size relative to viewport width */
-          line-height: 1.2;
-          margin: 0;
-          word-wrap: break-word;
+      /* Fade-in Effect for h2 */
+      .description {
+          margin-top: 1rem;
+          opacity: 0;
+          animation: fadeIn 1s ease-in-out 2s forwards;
       }
 
-      .banner-content h2 {
-          font-size: 4.5vw;
-          /* Adjust for smaller size */
-          line-height: 1.5;
-          margin-top: 1rem;
-          font-weight: 1000 !important;
+      @keyframes fadeIn {
+          to {
+              opacity: 1;
+          }
+      }
+
+      /* Responsive Heading Styles Using rem */
+      .slider-container h1 {
+          font-size: 4.5rem !important;
+          /* Base font size for h1 */
+          font-weight: 700;
+          /* Bold font */
+          line-height: 1.2;
+          /* Adjust line spacing */
+          margin: 0;
+          /* Remove extra margin */
+      }
+
+      .slider-container h2 {
+          font-size: 2.5rem !important;
+          /* Base font size for h2 */
+          font-weight: 400;
+          /* Regular weight */
+          line-height: 1.4;
+          /* Add readability */
+          margin: 0.5rem 0 0;
+          /* Add separation from h1 */
+      }
+
+      /* Media Queries for Smaller Screens */
+      @media (max-width: 900px) {
+          .slider-container h1 {
+              font-size: 3.5rem !important;
+              /* Smaller h1 size */
+          }
+
+          .slider-container h2 {
+              font-size: 2.5rem !important;
+              /* Smaller h2 size */
+          }
+      }
+
+      /* Media Queries for Smaller Screens */
+      @media (max-width: 768px) {
+          .slider-container h1 {
+              font-size: 2.7rem !important;
+              /* Smaller h1 size */
+          }
+
+          .slider-container h2 {
+              font-size: 1.9rem !important;
+              /* Smaller h2 size */
+          }
+      }
+
+      @media (max-width: 480px) {
+          .slider-container h1 {
+              font-size: 1.9rem !important;
+              /* Even smaller h1 for very small screens */
+          }
+
+          .slider-container h2 {
+              font-size: 1.4rem !important;
+              /* Adjusted h2 size */
+          }
+      }
+
+      [lang="en"] {
+          .slider-container h1 {
+              text-transform: capitalize;
+              font-size: 4rem !important;
+              /* Base font size for h1 */
+              font-weight: 700;
+              /* Bold font */
+              line-height: 1.2;
+              /* Adjust line spacing */
+              margin: 0;
+              /* Remove extra margin */
+          }
+
+          .slider-container h2 {
+              text-transform: capitalize;
+              font-size: 2rem !important;
+              /* Base font size for h2 */
+              font-weight: 400;
+              /* Regular weight */
+              line-height: 1.4;
+              /* Add readability */
+              margin: 0.5rem 0 0;
+              /* Add separation from h1 */
+          }
+
+          /* Media Queries for Smaller Screens */
+          @media (max-width: 900px) {
+              .slider-container h1 {
+                  font-size: 3.5rem !important;
+                  /* Smaller h1 size */
+              }
+
+              .slider-container h2 {
+                  font-size: 1.6rem !important;
+                  /* Smaller h2 size */
+              }
+          }
+
+          /* Media Queries for Smaller Screens */
+          @media (max-width: 768px) {
+              .slider-container h1 {
+                  font-size: 2.4rem !important;
+                  /* Smaller h1 size */
+              }
+
+              .slider-container h2 {
+                  font-size: 1.5rem !important;
+                  /* Smaller h2 size */
+              }
+          }
+
+          @media (max-width: 480px) {
+              .slider-container h1 {
+                  font-size: 1.7rem !important;
+                  /* Even smaller h1 for very small screens */
+              }
+
+              .slider-container h2 {
+                  font-size: 1.3rem !important;
+                  /* Adjusted h2 size */
+              }
+          }
       }
   </style>
 

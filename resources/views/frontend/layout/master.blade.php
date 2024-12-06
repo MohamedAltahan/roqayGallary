@@ -89,8 +89,8 @@
             p {
                 font-weight: 550 !important;
                 font-size: 1.2rem !important;
-
             }
+
 
             /* .main_header {
                 background-color: {{ $color->main_banner }} !important;
