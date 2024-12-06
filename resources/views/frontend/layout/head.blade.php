@@ -65,8 +65,54 @@
       /* Fade-in Effect for h2 */
       .description {
           margin-top: 1rem;
+          text-align: center;
           opacity: 0;
           animation: fadeIn 1s ease-in-out 2s forwards;
+      }
+
+      /* Default Typing for LTR (English) */
+      .typing {
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden;
+          border-right: 3px solid rgb(5, 0, 0);
+          /* Blinking caret on the right */
+          animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+          padding-top: 30px;
+          padding-bottom: 10px;
+      }
+
+      /* Arabic Typing for RTL */
+      [lang="ar"] .typing {
+          direction: rtl;
+          text-align: right;
+          border-left: 3px solid rgb(5, 0, 0);
+          /* Blinking caret on the left */
+          border-right: none;
+          /* Remove right caret */
+          animation: typing-rtl 2s steps(30, end), blink-rtl 0.75s step-end infinite;
+      }
+
+      /* Typing Animation for RTL */
+      @keyframes typing-rtl {
+          from {
+              width: 0;
+          }
+
+          to {
+              width: 100%;
+          }
+      }
+
+      /* Blinking Animation for RTL */
+      @keyframes blink-rtl {
+          from {
+              border-color: rgb(148, 67, 2);
+          }
+
+          to {
+              border-color: transparent;
+          }
       }
 
       @keyframes fadeIn {
