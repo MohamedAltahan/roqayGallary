@@ -12,7 +12,7 @@
             </div>
 
             <div class="dt-sc-service-content">
-                <p style="line-height: 1.5rem">
+                <p>
                     {!! @$design->long_description[App::getLocale()] !!}
                 </p>
             </div>
