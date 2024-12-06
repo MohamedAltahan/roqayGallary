@@ -66,8 +66,8 @@
          <!-- Logo and Site Name -->
          <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
              <img alt="Logo" width="50" class="" src="{{ asset('uploads/' . $logo->main_logo) }}" />
-             <h2 class="mt-3 ms-2 ">
-                 {{ $setting->site_name }}</h2>
+             <h3 class="mt-3 ms-2 ">
+                 {{ $setting->site_name }}</h3>
          </a>
 
          <!-- Toggler for mobile -->
