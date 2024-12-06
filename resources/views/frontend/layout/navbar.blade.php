@@ -64,7 +64,7 @@
      <div class="container menu-container " style="border-bottom: 1px solid rgba(255, 255, 255, 0.2);">
 
          <!-- Logo and Site Name -->
-         <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+         <a class="navbar-brand d-flex align-items-center ms-2" href="{{ route('home') }}">
              <img alt="Logo" width="50" class="" src="{{ asset('uploads/' . $logo->main_logo) }}" />
              <h3 class="mt-3 ms-2 ">
                  {{ $setting->site_name }}</h3>
