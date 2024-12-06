@@ -63,5 +63,32 @@
                 /* Height for mobile screens */
             }
         }
+
+        @media only screen and (max-width: 767px) {
+            h1 {
+                font-size: 35px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            h4 {
+                font-size: 16px;
+            }
+
+            h5 {
+                font-size: 15px;
+            }
+
+            h6 {
+                font-size: 14px;
+            }
+
+        }
     </style>
 @endpush
