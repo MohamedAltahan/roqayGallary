@@ -25,7 +25,7 @@
                             <h3>{{ @$design['name'][App::getLocale()] }}</h3>
                         </div>
                         <div class="entry-body">
-                            <p style="font-size: 22px">
+                            <p style="font-size: 22px;  line-height: 1.4;">
                                 {{ @$design['description'][App::getLocale()] }}
                             </p>
                         </div>

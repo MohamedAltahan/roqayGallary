@@ -10,7 +10,7 @@
         <!-- Right -->
         <div style="font-size: 22px">
             @foreach ($socials as $social)
-                <a target="_blank" class="me-4 text-reset" href="{{ $social->link }}">
+                <a target="_blank" class="me-2 text-reset" href="{{ $social->link }}">
                     <i class="{{ $social->icon }}"></i></a>
             @endforeach
         </div>
