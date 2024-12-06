@@ -24,7 +24,7 @@
                                             href="">{{ $service->name[App::getLocale()] }}</a> </h4>
                                 </div>
                                 <div class="entry-body">
-                                    <p style="line-height: 1.2rem">{{ $service->description[App::getLocale()] }} </p>
+                                    <p style="line-height: 1.35rem">{{ $service->description[App::getLocale()] }} </p>
                                 </div>
                             </div>
                         </article>
