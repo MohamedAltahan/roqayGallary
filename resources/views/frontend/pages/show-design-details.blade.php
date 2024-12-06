@@ -8,11 +8,11 @@
         <div class="container">
 
             <div class="main-title " data-animation="pullDown" data-delay="1">
-                <h3 style="              text-transform: capitalize;"> {{ @$design->name[App::getLocale()] }} </h3>
+                <h3 style="text-transform: capitalize;"> {{ @$design->name[App::getLocale()] }} </h3>
             </div>
 
             <div class="dt-sc-service-content">
-                <p>
+                <p style="line-height: 1.5rem">
                     {!! @$design->long_description[App::getLocale()] !!}
                 </p>
             </div>
