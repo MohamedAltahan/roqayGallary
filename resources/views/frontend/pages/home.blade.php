@@ -22,7 +22,7 @@
                 <article class="blog-entry @if ($loop->index % 2 == 0) type2 @endif">
                     <div class="entry-details">
                         <div>
-                            <h1 style="text-shadow: 1px 1px 1px #000 font-size: 100px">
+                            <h1 style="text-shadow: 1px 1px 1px #000 font-size: 100px !important">
                                 {{ @$design['name'][App::getLocale()] }}</h1>
                         </div>
                         <div class="entry-body">
