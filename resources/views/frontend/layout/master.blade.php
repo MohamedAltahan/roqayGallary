@@ -90,7 +90,7 @@
                 background-size: cover !important;
                 background-position: center;
                 font-family: "UKIJChiK" !important;
-                font-weight: 1000 !important;
+
 
                 /* font-style: bold !important; */
             }
