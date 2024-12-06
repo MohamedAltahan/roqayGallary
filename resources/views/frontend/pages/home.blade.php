@@ -20,7 +20,7 @@
         @foreach ($designs as $design)
             <div class="blog-section">
                 <article class="blog-entry @if ($loop->index % 2 == 0) type2 @endif">
-                    <div class="entry-details">
+                    <div class="entry-details my-5">
                         <div>
                             <h1 style="text-shadow: 1px 1px 1px #000 font-size: 100px !important">
                                 {{ @$design['name'][App::getLocale()] }}</h1>
@@ -66,11 +66,11 @@
 
         @media only screen and (max-width: 767px) {
             h1 {
-                font-size: 35px;
+                font-size: 31px;
             }
 
             h2 {
-                font-size: 27px;
+                font-size: 25px;
             }
 
             h3 {
