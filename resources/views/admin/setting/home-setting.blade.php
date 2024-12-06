@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="list-home-page" role="tabpanel" aria-labelledby="list-home-page-list">
+<div class="tab-pane fade show active" id="list-home-page" role="tabpanel" aria-labelledby="list-home-page-list">
     <div class="card border">
         <div class="card-body">
             <form action="{{ route('admin.home-page-setting.update') }}" method="POST" enctype="multipart/form-data">
