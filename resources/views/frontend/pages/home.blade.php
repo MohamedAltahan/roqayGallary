@@ -6,7 +6,7 @@
         <!-- **Full-width-section Starts Here** -->
         <div class="container">
             <div class="main-title animate" data-animation="pullDown" data-delay="100">
-                <h5 class="aligncenter">{!! @$homePageHeader['sub_title'][App::getLocale()] !!}</h5>
+                <h3 class="aligncenter">{!! @$homePageHeader['sub_title'][App::getLocale()] !!}</h3>
                 <p style="">
                     {!! @$homePageHeader['sub_description'][App::getLocale()] !!}
                 </p>
