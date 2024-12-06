@@ -89,7 +89,7 @@
             p {
                 font-weight: 550 !important;
                 font-size: 1.2rem !important;
-                line-height: 2.1rem !important;
+                line-height: 2rem !important;
             }
 
 
