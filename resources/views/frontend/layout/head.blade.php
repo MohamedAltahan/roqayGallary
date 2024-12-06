@@ -131,7 +131,7 @@
           }
 
           .slider-container h2 {
-              font-size: 1.4rem !important;
+              font-size: 1.6rem !important;
               /* Adjusted h2 size */
           }
       }
