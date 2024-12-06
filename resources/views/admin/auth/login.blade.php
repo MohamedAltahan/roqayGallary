@@ -79,7 +79,8 @@
 
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox">
-                                                <input id="remember_me" type="checkbox" name="remember" tabindex="3">
+                                                <input id="remember_me" type="checkbox" checked name="remember"
+                                                    tabindex="3">
                                                 <label for="remember_me">Remember
                                                     Me</label>
                                             </div>
