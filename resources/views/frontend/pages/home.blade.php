@@ -22,12 +22,12 @@
                 <article class="blog-entry @if ($loop->index % 2 == 0) type2 @endif">
                     <div class="entry-details">
                         <div class="">
-                            <h2>{{ @$design['name'][App::getLocale()] }}</h2>
+                            <h1 style="text-shadow: 1px 1px 2px #000">{{ @$design['name'][App::getLocale()] }}</h1>
                         </div>
                         <div class="entry-body">
-                            <h3>
+                            <h2>
                                 {{ @$design['description'][App::getLocale()] }}
-                            </h3>
+                            </h2>
                         </div>
                         <a class="type1 dt-sc-button small btn_color"
                             href="{{ route('design-details.index', $design->id) }}">{{ __('View Gallery') }}<i
