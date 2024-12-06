@@ -6,8 +6,8 @@
         <!-- **Full-width-section Starts Here** -->
         <div class="container">
             <div class="main-title animate" data-animation="pullDown" data-delay="100">
-                <h2 class="aligncenter">{!! @$homePageHeader['sub_title'][App::getLocale()] !!}</h2>
-                <p style="font-size: 22px">
+                <h5 class="aligncenter">{!! @$homePageHeader['sub_title'][App::getLocale()] !!}</h5>
+                <p style="">
                     {!! @$homePageHeader['sub_description'][App::getLocale()] !!}
                 </p>
             </div>
@@ -21,13 +21,13 @@
             <div class="blog-section">
                 <article class="blog-entry @if ($loop->index % 2 == 0) type2 @endif">
                     <div class="entry-details">
-                        <div class="entry-title">
-                            <h3>{{ @$design['name'][App::getLocale()] }}</h3>
+                        <div class="">
+                            <h2>{{ @$design['name'][App::getLocale()] }}</h2>
                         </div>
                         <div class="entry-body">
-                            <p style="font-size: 22px;  line-height: 1.4;">
+                            <h3>
                                 {{ @$design['description'][App::getLocale()] }}
-                            </p>
+                            </h3>
                         </div>
                         <a class="type1 dt-sc-button small btn_color"
                             href="{{ route('design-details.index', $design->id) }}">{{ __('View Gallery') }}<i

@@ -60,78 +60,53 @@
           background-repeat: no-repeat;
           /* Prevents the image from repeating */
           width: 100%;
-          /* Ensures it spans the full width */
-          /* height: auto; */
-          /* Adjust height proportionally */
-          min-height: 400px;
-          /* Optional: set a minimum height */
       }
 
-
-      /* General styling for all devices */
-      .banner-content h2 {
-          font-size: 2rem;
-          /* Default size */
+      .banner-content h1 {
+          font-size: 4vw;
+          /* Responsive font size relative to viewport width */
           line-height: 1.2;
-          /* Adjust line height for readability */
+          margin: 0;
+          word-wrap: break-word;
       }
 
-      .banner-content h4 {
-          font-size: 1.5rem;
-          /* Default size */
+      .banner-content h2 {
+          font-size: 2.5vw;
+          /* Adjust for smaller size */
           line-height: 1.5;
-          /* Adjust line height for readability */
+          margin-top: 1rem;
       }
 
-      /* Media queries for responsive design */
-
-      /* Small screens (up to 768px wide) */
-      @media (min-width: 768px) {
-          .banner-content h2 {
-              font-size: 4.2rem;
-              /* Smaller font size for h2 on smaller screens */
-              line-height: 1.3;
-              /* Adjust line height */
+      @media (max-width: 1024px) {
+          .banner-content h1 {
+              font-size: 6vw;
+              /* Slightly smaller for tablets */
           }
 
-          .banner-content h4 {
-              font-size: 2.5rem !important;
-              /* Smaller font size for h4 on smaller screens */
-              line-height: 1.3;
-              /* Adjust line height */
+          .banner-content h2 {
+              font-size: 3.5vw;
           }
       }
 
       @media (max-width: 768px) {
-          .banner-content h2 {
-              font-size: 1.7rem;
-              /* Smaller font size for h2 on smaller screens */
-              line-height: 1.1;
-              /* Adjust line height */
+          .banner-content h1 {
+              font-size: 5vw;
+              /* Even smaller for smaller screens */
           }
 
-          .banner-content h4 {
-              font-size: 1.2rem;
-              /* Smaller font size for h4 on smaller screens */
-              line-height: 1.3;
-              /* Adjust line height */
+          .banner-content h2 {
+              font-size: 3vw;
           }
       }
 
-      /* Extra small screens (up to 480px wide) */
       @media (max-width: 480px) {
-          .banner-content h2 {
-              font-size: 1.8rem;
-              /* Even smaller for extra small screens */
-              line-height: 1.1;
-              /* Keep readable spacing */
+          .banner-content h1 {
+              font-size: 4vw;
+              /* Adjust for mobile devices */
           }
 
-          .banner-content h4 {
-              font-size: 1.4rem !important;
-              /* Reduce size for h4 */
-              line-height: 1.2;
-              /* Adjust line height */
+          .banner-content h2 {
+              font-size: 2.5vw;
           }
       }
   </style>
@@ -141,13 +116,13 @@
       <div class="slider fullwidth-section parallax"
           style=" background-image:
          url({{ asset('uploads/' . @$homePageHeader['main_image']) }});">
-          <div class="main-banner mb-5">
+          <div class="main-banner mb">
               <div class="banner-content mb-5">
-                  <h2 class="display-2 fw-bold">
+                  <h1 class="display-2 fw-bold">
                       <span class="typing">{{ $homePageHeader['main_title'][App::getLocale()] }}</span>
-                  </h2>
-                  <h4 class="lead description" style="font-size: 30px">
-                      {{ $homePageHeader['main_description'][App::getLocale()] }}</h4>
+                  </h1>
+                  <h2 class=" description" style="">
+                      {{ $homePageHeader['main_description'][App::getLocale()] }}</h2>
               </div>
           </div>
 

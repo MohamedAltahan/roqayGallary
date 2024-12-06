@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en-gb" class="no-js">
+<html lang="{{ session('locale', config('app.locale')) }}" class="no-js">
     <!--<![endif]-->
 
     <head>
@@ -12,6 +12,20 @@
             $color = \App\Models\WebsiteColor::first() ?? new \App\Models\WebsiteColor();
 
         @endphp
+
+
+        <style>
+            [lang="en"] {
+                font-size: 0.9rem;
+            }
+
+            body {
+                font-size: 1rem;
+
+            }
+        </style>
+
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -73,15 +87,12 @@
                 margin: 0;
                 padding: 0;
                 background-image: url("{{ asset('frontend/images/background.jpg') }}") !important;
-                background-size: cover;
+                background-size: cover !important;
                 background-position: center;
-
                 font-family: "UKIJChiK" !important;
-                font-weight: 400;
+                font-weight: 1000 !important;
 
-                font-size: 110%;
-                font-style: normal !important;
-                /* Changes the font color for all text */
+                /* font-style: bold !important; */
             }
 
             /* .main_header {
