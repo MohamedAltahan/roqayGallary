@@ -87,9 +87,9 @@
             }
 
             p {
-                font-weight: 1000 !important;
+                font-weight: 550 !important;
                 font-size: 1.5rem !important;
-                line-height: 2.2rem
+
             }
 
             /* .main_header {

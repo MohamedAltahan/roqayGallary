@@ -21,11 +21,12 @@
             <div class="blog-section">
                 <article class="blog-entry @if ($loop->index % 2 == 0) type2 @endif">
                     <div class="entry-details">
-                        <div class="">
-                            <h1 style="text-shadow: 1px 1px 2px #000">{{ @$design['name'][App::getLocale()] }}</h1>
+                        <div>
+                            <h1 style="text-shadow: 1px 1px 1px #000 font-size: 100px">
+                                {{ @$design['name'][App::getLocale()] }}</h1>
                         </div>
                         <div class="entry-body">
-                            <p>
+                            <p style="line-height: 2.2rem">
                                 {{ @$design['description'][App::getLocale()] }}
                             </p>
                         </div>
