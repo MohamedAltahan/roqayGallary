@@ -6,9 +6,9 @@
         <div class="row">
             <div class=" col-sm-12 col-md-3">
                 <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action" id="list-home-page-list" data-toggle="list"
+                    <a class="list-group-item list-group-item-action active" id="list-home-page-list" data-toggle="list"
                         href="#list-home-page" role="tab">Home Page</a>
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                    <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list"
                         href="#list-home" role="tab">General Setting</a>
                     {{-- <a class="list-group-item list-group-item-action" id="list-home-showreels-page-list" data-toggle="list"
                         href="#list-home-showreels-page" role="tab">Home Showreels & photos</a> --}}
