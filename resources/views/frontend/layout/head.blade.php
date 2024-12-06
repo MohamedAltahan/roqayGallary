@@ -63,7 +63,7 @@
       }
 
       .banner-content h1 {
-          font-size: 4vw;
+          font-size: 7vw;
           /* Responsive font size relative to viewport width */
           line-height: 1.2;
           margin: 0;
@@ -71,43 +71,11 @@
       }
 
       .banner-content h2 {
-          font-size: 2.5vw;
+          font-size: 4.5vw;
           /* Adjust for smaller size */
           line-height: 1.5;
           margin-top: 1rem;
-      }
-
-      @media (max-width: 1024px) {
-          .banner-content h1 {
-              font-size: 6vw;
-              /* Slightly smaller for tablets */
-          }
-
-          .banner-content h2 {
-              font-size: 3.5vw;
-          }
-      }
-
-      @media (max-width: 768px) {
-          .banner-content h1 {
-              font-size: 5vw;
-              /* Even smaller for smaller screens */
-          }
-
-          .banner-content h2 {
-              font-size: 3vw;
-          }
-      }
-
-      @media (max-width: 480px) {
-          .banner-content h1 {
-              font-size: 4vw;
-              /* Adjust for mobile devices */
-          }
-
-          .banner-content h2 {
-              font-size: 2.5vw;
-          }
+          font-weight: 1000 !important;
       }
   </style>
 

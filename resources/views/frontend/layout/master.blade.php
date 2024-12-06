@@ -14,16 +14,7 @@
         @endphp
 
 
-        <style>
-            [lang="en"] {
-                font-size: 0.9rem;
-            }
 
-            body {
-                font-size: 1rem;
-
-            }
-        </style>
 
 
         <meta charset="utf-8" />
@@ -93,6 +84,12 @@
 
 
                 /* font-style: bold !important; */
+            }
+
+            p {
+                font-weight: 1000 !important;
+                font-size: 1.5rem !important;
+                line-height: 2.2rem
             }
 
             /* .main_header {

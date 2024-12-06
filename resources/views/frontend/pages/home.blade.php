@@ -25,9 +25,9 @@
                             <h1 style="text-shadow: 1px 1px 2px #000">{{ @$design['name'][App::getLocale()] }}</h1>
                         </div>
                         <div class="entry-body">
-                            <h2>
+                            <p>
                                 {{ @$design['description'][App::getLocale()] }}
-                            </h2>
+                            </p>
                         </div>
                         <a class="type1 dt-sc-button small btn_color"
                             href="{{ route('design-details.index', $design->id) }}">{{ __('View Gallery') }}<i
