@@ -139,7 +139,7 @@
       [lang="en"] {
           .slider-container h1 {
               text-transform: capitalize;
-              font-size: 4rem !important;
+              font-size: 3.7rem !important;
               /* Base font size for h1 */
               font-weight: 700;
               /* Bold font */
@@ -151,7 +151,7 @@
 
           .slider-container h2 {
               text-transform: capitalize;
-              font-size: 2rem !important;
+              font-size: 1.8rem !important;
               /* Base font size for h2 */
               font-weight: 400;
               /* Regular weight */
