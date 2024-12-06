@@ -6,7 +6,7 @@
         <!-- **Full-width-section Starts Here** -->
         <div class="container">
             <div class="main-title animate" data-animation="pullDown" data-delay="100">
-                <h5 class="aligncenter">{!! @$homePageHeader['sub_title'][App::getLocale()] !!}</h5>
+                <h1 class="aligncenter">{!! @$homePageHeader['sub_title'][App::getLocale()] !!}</h1>
                 <p style="">
                     {!! @$homePageHeader['sub_description'][App::getLocale()] !!}
                 </p>
@@ -64,29 +64,15 @@
             }
         }
 
-        @media only screen and (max-width: 767px) {
+        @media (max-width: 1920px) {
             h1 {
-                font-size: 31px;
+                font-size: 31px !important;
+                text-transform: capitalize !important;
             }
 
             h2 {
-                font-size: 25px;
-            }
+                font-size: 25px !important;
 
-            h3 {
-                font-size: 18px;
-            }
-
-            h4 {
-                font-size: 16px;
-            }
-
-            h5 {
-                font-size: 15px;
-            }
-
-            h6 {
-                font-size: 14px;
             }
 
         }
