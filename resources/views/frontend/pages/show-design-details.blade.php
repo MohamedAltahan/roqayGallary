@@ -20,11 +20,20 @@
             <div class=" py-5 text-center">
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
                     {{-- <p class="section-title text-secondary justify-content-center">{{ $design->name[App::getLocale()] }}</p> --}}
+                    @foreach ($design->videos as $video)
+                        <video class="col-12 rounded" id="video_element" style="max-height: 70vh;"
+                            poster="{{ $video->video_thumbnail ? asset('uploads/' . $video->video_thumbnail) : null }}"
+                            controls controlsList="nodownload">
+                            <source src="{{ asset('uploads/' . $video->name) }}" type="video/mp4" data-src="mov_bbb.ogg">
+                        </video>
+                    @endforeach
                     @foreach ($design->images as $image)
                         <img class="col-12 rounded" src="{{ asset('uploads/' . @$image->name) }}">
                     @endforeach
-                    <a href="{{ route('contact.index') }}"
-                        class="type1 dt-sc-button small btn_color">{{ __('Send us a message') }}</a>
+                    <div>
+                        <a href="{{ route('contact.index') }}"
+                            class="type1 dt-sc-button small btn_color">{{ __('Send us a message') }}</a>
+                    </div>
                 </div>
             </div>
         </div>

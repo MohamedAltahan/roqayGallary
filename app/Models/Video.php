@@ -9,10 +9,10 @@ class Video extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'design_id', 'at_home', 'video_thumbnail'];
+    protected $fillable = ['name', 'images_group_key',];
 
     public function design()
     {
-        return $this->belongsTo(Design::class, 'design_id', 'id');
+        return $this->belongsTo(Design::class, 'images_group_key', 'images_group_key');
     }
 }

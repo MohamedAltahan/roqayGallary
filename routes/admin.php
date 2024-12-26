@@ -55,9 +55,12 @@ Route::group(
         Route::put('media-on-home-page', [HomePageSettingController::class, 'mediaOnHomePageUpdate'])->name('media-on-home-page.update');
 
         //desgin
+        Route::post('design/upload-video/{desing}', [DesignController::class, 'uploadVideo'])->name('design.upload.video');
         Route::post('design/upload-images/{desing}', [DesignController::class, 'uploadImage'])->name('design.upload.image');
         Route::get('design/get-images', [DesignController::class, 'getImage'])->name('design.get-images');
+        Route::get('design/get-videos', [DesignController::class, 'getVideo'])->name('design.get-videos');
         Route::delete('design/delete-design-image', [DesignController::class, 'deleteImage'])->name('design.delete-image');
+        Route::delete('design/delete-design-video', [DesignController::class, 'deleteVideo'])->name('design.delete-video');
         Route::put('design/change-status', [DesignController::class, 'changeStatus'])->name('design.change-status');
         Route::resource('design', DesignController::class);
 

@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Design;
 use App\Models\Image;
+use App\Models\Video;
 use App\Traits\fileUploadTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DesignController extends Controller
@@ -20,6 +22,7 @@ class DesignController extends Controller
     public function create()
     {
         $this->deleteUselessImages();
+        $this->deleteUselessVideos();
         $imagesGroupKey = Str::random(10);
 
         return view('admin.design.create', compact('imagesGroupKey'));
@@ -52,7 +55,7 @@ class DesignController extends Controller
      */
     public function edit(string $id)
     {
-        $design = Design::with('images')->findOrFail($id);
+        $design = Design::with('images', 'videos')->findOrFail($id);
 
         return view('admin.design.edit', compact('design'));
     }
@@ -111,8 +114,8 @@ class DesignController extends Controller
     //product image upload for dropzone request
     public function uploadImage(Request $request, $id)
     {
-        if ($request->hasFile('file')) {
-            $imagePath = $this->fileUplaod($request, 'myDisk', 'designGallery', 'file');
+        if ($request->hasFile('image')) {
+            $imagePath = $this->fileUplaod($request, 'myDisk', 'designGallery', 'image');
             $image = new Image;
             $image['name'] = $imagePath;
             $image['images_group_key'] = $id;
@@ -124,12 +127,33 @@ class DesignController extends Controller
         }
     }
 
+    //product image upload for dropzone request
+    public function uploadVideo(Request $request, $id)
+    {
+        if ($request->hasFile('video')) {
+            $videoPath = $this->fileUplaod($request, 'myDisk', 'designGallery', 'video');
+            $video = new Video();
+            $video['name'] = $videoPath;
+            $video['images_group_key'] = $id;
+            $video->save();
+
+            return response($video->id);
+        } else {
+            return response(['e' => 'e']);
+        }
+    }
+
     //get Product Images using ajax
     public function getImage(Request $request)
     {
         $images = Image::where('images_group_key', $request->images_group_key)->get();
-
         return view('admin.design.images', compact('images'));
+    }
+
+    public function getVideo(Request $request)
+    {
+        $videos = Video::where('images_group_key', $request->images_group_key)->get();
+        return view('admin.design.videos', compact('videos'));
     }
 
     //delete Product Images using ajax
@@ -143,12 +167,31 @@ class DesignController extends Controller
         return view('admin.design.images', compact('images'));
     }
 
+    public function deleteVideo(Request $request)
+    {
+        $video = Video::findOrFail($request->id);
+        $video->delete();
+        $this->deleteFile('myDisk', $video->name);
+        $videos = Video::where('images_group_key', $request->images_group_key)->get();
+
+        return view('admin.design.videos', compact('videos'));
+    }
+
     public function deleteUselessImages()
     {
         $images = Image::whereDoesntHave('design')->get();
         foreach ($images as $image) {
             $this->deleteFile('myDisk', $image->name);
             $image->delete();
+        }
+    }
+
+    public function deleteUselessVideos()
+    {
+        $videos = Video::whereDoesntHave('design')->get();
+        foreach ($videos as $video) {
+            $this->deleteFile('myDisk', $video->name);
+            $video->delete();
         }
     }
 }

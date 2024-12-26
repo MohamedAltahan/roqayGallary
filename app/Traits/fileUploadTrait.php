@@ -12,7 +12,6 @@ trait fileUploadTrait
         //it returns object of uploaded file object
         $file = $request->file($inputName);
         $path = $file->store($folderName, ['disk' => $diskName]);
-
         return $path;
     }
 

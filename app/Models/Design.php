@@ -21,12 +21,12 @@ class Design extends Model
     // relations
     public function images()
     {
-        return $this->hasMany(Image::class, 'images_group_key', 'images_group_key')->limit(4);
+        return $this->hasMany(Image::class, 'images_group_key', 'images_group_key');
     }
 
     public function videos()
     {
-        return $this->hasMany(Video::class, 'design_id', 'id');
+        return $this->hasMany(Video::class, 'images_group_key', 'images_group_key');
     }
 
     public function category()
