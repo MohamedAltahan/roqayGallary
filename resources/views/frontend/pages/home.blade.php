@@ -36,7 +36,7 @@
                     </div>
                     <div class="entry-thumb ">
                         <ul class="blog-slider">
-                            @foreach ($design->images as $image)
+                            @foreach ($design->images->take(4) as $image)
                                 <li>
                                     <img class=" rounded" src="{{ asset('uploads/' . $image->name) }}" alt=""
                                         title="" />

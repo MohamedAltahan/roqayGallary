@@ -148,7 +148,7 @@
 
     <script>
         Dropzone.options.imageDropzone = {
-            dictDefaultMessage: "Your custom message here"
+
             paramName: "image", // The name that will be used to transfer the file (by default is 'file')
             maxFilesize: 6, // MB
             acceptedFiles: 'image/*',
